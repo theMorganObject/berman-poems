@@ -1,0 +1,27 @@
+---
+title: 'The Neowise Comet'
+date: '2020-08-21'
+excerpt: A month's slipped by
+isFeatured: true
+---
+
+A month's slipped by  
+and still in my mind's eye  
+the comet shines clear  
+over the horizon  
+unearthly beauty  
+slender threads of light  
+pale roots streaking upward  
+from the comet's head
+an upside down medusa  
+floating below the Bear  
+rare visitor, she'll be back again  
+though not next year  
+nor even next millenium  
+and we will be long gone  
+at least from here  
+perhaps we'll be way out  
+where comets cruise  
+far beyond Neptune  
+riding the long elipse  
+heading for home
