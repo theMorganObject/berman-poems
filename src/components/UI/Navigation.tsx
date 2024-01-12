@@ -1,42 +1,29 @@
-'use client';
-
-import { useState, useEffect } from 'react';
-import classes from './Navigation.module.css';
 import {
-  IoArrowBackCircle,
-  IoCalendarNumber,
-  IoArrowForwardCircle,
+  IoArrowBackCircleSharp,
+  IoMailOutline,
+  IoCalendarNumberSharp,
+  IoInformationCircleOutline,
+  IoArrowForwardCircleSharp,
 } from 'react-icons/io5';
 
 function Navigation() {
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 1) {
-        setIsVisible(true);
-      } else {
-        setIsVisible(false);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
   return (
-    <nav className={`${classes.nav} ${isVisible ? classes.visible : ''} `}>
-      <ul className='flex justify-between text-4xl text-gray-7/80'>
-        <li>
-          <IoArrowBackCircle />
+    <nav className='fixed bottom-0 left-1/2 transform -translate-x-1/2 pb-4 w-64 xs:w-80 xs:px-2 sm:w-96 sm:px-4'>
+      <ul className='flex justify-between items-center text-4xl text-gray-8/80'>
+        <li className='hover:text-gray-6/90 transition-colors duration-150'>
+          <IoArrowBackCircleSharp />
         </li>
-        <li>
-          <IoCalendarNumber />
+        <li className='hover:text-gray-6/90 transition-colors duration-150'>
+          <IoMailOutline />
         </li>
-        <li>
-          <IoArrowForwardCircle />
+        <li className='hover:text-gray-6/90 transition-colors duration-150'>
+          <IoCalendarNumberSharp />
+        </li>
+        <li className='hover:text-gray-6/90 transition-colors duration-150'>
+          <IoInformationCircleOutline />
+        </li>
+        <li className='hover:text-gray-6/90 transition-colors duration-150'>
+          <IoArrowForwardCircleSharp />
         </li>
       </ul>
     </nav>
