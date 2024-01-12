@@ -3,6 +3,7 @@ title: 'The Old House'
 date: '2020-08-23'
 excerpt: The old house on five acres
 isFeatured: false
+id: 3
 ---
 
 The old house on five acres  

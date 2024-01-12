@@ -3,6 +3,7 @@ title: 'Arics Birthday'
 date: '2020-08-22'
 excerpt: Aric's Birthday
 isFeatured: false
+id: 2
 ---
 
 Aric's birthday  

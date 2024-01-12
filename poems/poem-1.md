@@ -3,6 +3,7 @@ title: 'The Neowise Comet'
 date: '2020-08-21'
 excerpt: A month's slipped by
 isFeatured: true
+id: 1
 ---
 
 A month's slipped by  
