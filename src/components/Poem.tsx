@@ -11,9 +11,11 @@ function Poem({ poemId }: PoemProps) {
 
   return (
     <article>
-      <h2>{title}</h2>
-      <p>{date}</p>
-      <Markdown>{content}</Markdown>
+      <h2 className='text-4xl text-center font-tangerine mt-2 mb-4 xs:text-5xl sm:text-6xl'>
+        {title}
+      </h2>
+      <p className='font-bold'>{date}</p>
+      <Markdown className='text-sm xs:text-base sm:text-lg'>{content}</Markdown>
     </article>
   );
 }
