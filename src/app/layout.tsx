@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { Source_Sans_3, Tangerine } from 'next/font/google';
-import Navigation from '@/components/UI/Navigation';
 import './globals.css';
 
 const sourceSans3 = Source_Sans_3({
@@ -29,7 +28,6 @@ export default function RootLayout({
     <html lang='en'>
       <body className={`${sourceSans3.variable} ${tangerine.variable}`}>
         {children}
-        <Navigation />
       </body>
     </html>
   );

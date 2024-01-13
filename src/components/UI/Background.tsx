@@ -1,10 +1,8 @@
 import Image from 'next/image';
 import parchment from '../../../public/parchment-bg-5.jpg';
-import classes from './Background.module.css';
 
 export default function Background() {
   return (
-    // <div className={classes.imageContainer}>
     <Image
       alt='Light gray parchment paper background'
       src={parchment}
@@ -17,6 +15,5 @@ export default function Background() {
         zIndex: -2,
       }}
     />
-    // </div>
   );
 }
