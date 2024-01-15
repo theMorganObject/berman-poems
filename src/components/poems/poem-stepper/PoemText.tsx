@@ -1,11 +1,12 @@
 import Markdown from 'react-markdown';
-import { getPoemData } from '../../lib/poems-util';
+import { getPoemData } from '../../../../lib/poems-util';
+import PoemControls from '@/components/poems/poem-stepper/PoemControls';
 
 interface PoemProps {
   poemId: string;
 }
 
-function Poem({ poemId }: PoemProps) {
+function PoemText({ poemId }: PoemProps) {
   const poemData = getPoemData(poemId);
   const { title, date, content } = poemData;
 
@@ -16,8 +17,9 @@ function Poem({ poemId }: PoemProps) {
       </h2>
       <p className='font-bold mb-1'>{date}</p>
       <Markdown className='text-sm xs:text-base sm:text-lg'>{content}</Markdown>
+      <PoemControls />
     </article>
   );
 }
 
-export default Poem;
+export default PoemText;
