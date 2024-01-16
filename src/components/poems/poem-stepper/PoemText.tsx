@@ -1,6 +1,7 @@
 import Markdown from 'react-markdown';
 import { getPoemData } from '../../../../lib/poems-util';
 import PoemControls from '@/components/poems/poem-stepper/PoemControls';
+import classes from './PoemText.module.css';
 
 interface PoemProps {
   poemId: string;
@@ -16,7 +17,11 @@ function PoemText({ poemId }: PoemProps) {
         {title}
       </h2>
       <p className='font-bold mb-1'>{date}</p>
-      <Markdown className='text-sm xs:text-base sm:text-lg'>{content}</Markdown>
+      <div className={classes.customScrollbar}>
+        <Markdown className='text-sm xs:text-base sm:text-lg max-h-[70vh] overflow-y-scroll'>
+          {content}
+        </Markdown>
+      </div>
       <PoemControls />
     </article>
   );

@@ -1,5 +1,5 @@
-import Background from '@/components/UI/Background';
 import AllPoems from '@/components/poems/AllPoems';
+import Navigation from '@/components/UI/Navigation';
 import { getAllPoems } from '../../../lib/poems-util';
 
 async function getPoems() {
@@ -13,12 +13,9 @@ export default async function Home() {
   const allPoems = await getPoems();
 
   return (
-    <main className='relative flex min-h-screen flex-col items-center p-2 pb-16'>
-      <h1 className='text-4xl text-center font-tangerine mt-2 mb-4 xs:text-5xl sm:text-6xl'>
-        The all-poems page
-      </h1>
+    <main className='relative flex min-h-screen flex-col items-center p-2'>
+      <Navigation />
       <AllPoems poems={allPoems} />
-      <Background />
     </main>
   );
 }

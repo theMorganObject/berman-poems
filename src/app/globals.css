@@ -16,6 +16,21 @@
   }
 }
 
+@layer utilities {
+  /* Make the scrollbar transparent for Chrome, Safari, Opera */
+  .transparent-scrollbar::-webkit-scrollbar {
+    width: 0px; /* prevents any flicker on mouse hover */
+  }
+
+  .transparent-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .transparent-scrollbar::-webkit-scrollbar-thumb {
+    background: transparent;
+  }
+}
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(

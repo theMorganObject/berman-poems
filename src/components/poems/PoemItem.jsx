@@ -1,16 +1,22 @@
 import Link from 'next/link';
+import { formattedTime } from '../../../lib/style-util';
 
 function PoemItem(props) {
   const { title, date, excerpt, slug } = props.poem;
   const linkPath = `/poems/${slug.replace(/\.md$/, '')}`;
 
   return (
-    <li>
+    <li className='mb-6 mx-4 mt-4'>
       <Link href={linkPath}>
-        <div>
-          <h3>{title}</h3>
-          <time>{date}</time>
-          <p>{excerpt}</p>
+        <div className='flex items-start bg-gray-0 bg-opacity-20 border border-gray-8 p-4 rounded shadow-md transform transition-transform hover:scale-105'>
+          <p className='text-2xl font-bold'>{date.slice(-2)}</p>
+          <p className='font-tangerine text-lg leading-[2.45rem] mr-6'>
+            {formattedTime(date.slice(-2))}
+          </p>
+          <div className='flex flex-col'>
+            <h3 className='font-tangerine text-2xl'>{title}</h3>
+            <p className='italic ml-4'>&quot;{excerpt}...&quot;</p>
+          </div>
         </div>
       </Link>
     </li>
