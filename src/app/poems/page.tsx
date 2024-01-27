@@ -13,9 +13,9 @@ export default async function Home() {
   const allPoems = await getPoems();
 
   return (
-    <main className='relative flex min-h-screen flex-col items-center p-2'>
-      <Navigation />
+    <main className='relative flex flex-col items-center'>
       <AllPoems poems={allPoems} />
+      <Navigation />
     </main>
   );
 }

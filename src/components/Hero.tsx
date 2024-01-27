@@ -4,7 +4,7 @@ import { GiQuillInk } from 'react-icons/gi';
 function Hero() {
   return (
     <>
-      <h1 className='text-6xl text-center font-tangerine mt-12 mb-2 xs:text-7xl'>
+      <h1 className='text-6xl text-center font-tangerine pt-12 mb-2 xs:text-7xl'>
         Daily Poems
       </h1>
       <p className='text-2xl font-tangerine mb-12 xs:text-3xl'>
