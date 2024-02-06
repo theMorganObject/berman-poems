@@ -22,7 +22,7 @@ function Hero() {
       </p>
       <div className='flex flex-col gap-6'>
         <Link
-          href='/poems/poem-1'
+          href='/poems/poem-0001'
           className='bg-gray-8 text-center border-2 border-gray-8 text-gray-1 hover:bg-gray-7 hover:text-gray-9 hover:bg-transparent active:bg-gray-9 active:text-gray-0 px-4 py-1 transition duration-200 ease-in xs:text-lg'
         >
           <button>Read Today&apos;s Poem</button>
