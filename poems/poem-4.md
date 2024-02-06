@@ -1,9 +1,11 @@
 ---
-title: 'Morning Scene with Dogs'
-date: '2020-08-24'
-excerpt: This morning coming down the stairs
-isFeatured: true
-id: 4
+title: "Morning Scene With Dogs"
+date: "2020-08-24"
+excerpt: "This morning coming down the stairs"
+isFeatured: "false"
+poemNumber: "4"
+id: "b3843fd5-ea0a-4ed7-a205-8689dbfd5d25"
+location: "Unknown"
 ---
 
 This morning coming down the stairs  

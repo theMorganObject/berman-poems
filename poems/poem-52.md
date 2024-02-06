@@ -1,0 +1,91 @@
+---
+title: "My Rabbi Teacher"
+date: "2020-10-08"
+excerpt: "is better at beginnigs"
+isFeatured: "false"
+poemNumber: "52"
+id: "177728e9-16f3-40cf-8a94-fbaf847a23fc"
+location: "Unknown"
+---
+
+used to say that God  
+is better at beginnigs  
+than at endings  
+it's not hard  
+to come up with examples
+
+Tonight I'm thinking of  
+our own beginnings  
+back in Africa  
+when we were few  
+and this our future  
+on the planet  
+beyond imagining#
+
+Not a garden  
+but a forest  
+and savannah that  
+stretched on forever  
+wilderness we shared as equals  
+with both predators and prey  
+being ourselves sometimes  
+the one  
+sometimes the other
+
+Shared also  
+with a host of  
+fellow creatures  
+who were neither  
+prey nor predator  
+but simply there  
+inhabiting a world  
+with all of us inside  
+a world  
+with no outsiders
+
+That world is no longer  
+though a bit  
+of that wild Africa survives  
+guarded by men with guns  
+and while we might imagine  
+how a God once watched  
+the dawning of that world  
+he surely had no part  
+in what it's come to
+
+When my rabbi teacher taught  
+that God was better  
+at beginnings we all thought him  
+wise and witty  
+but he only spoke as one  
+who'd never suffered  
+through a painful birth  
+nor lost a stillborn child  
+in other words a man
+
+Easy to imagine  
+a world we'd not yet spoiled  
+but I wonder  
+were those distant ancestors  
+not already dreaming  
+of an Eden they had lost?
+
+Jonathan Omer-Man  
+September 17 at 5:16 PM
+
+·
+
+Law of Eternal Return
+
+Yes, we shall return, yes, we will come back,  
+though a checkpoint stands before us,  
+an interrogation booth, a place of close examination.  
+Who would confess sins with no certainty of forgiveness?  
+Who would face shame with no expectation of release?  
+Who would discard masks of virtue with no assurance of love?  
+Uncover our iniquities  
+Look at the stains  
+Abolish bogus.  
+Show us a sign, and we shall return.  
+Offer us the life realigned  
+And we will come back.
