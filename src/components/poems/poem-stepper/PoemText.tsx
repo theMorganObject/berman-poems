@@ -17,7 +17,7 @@ function PoemText({ poemId }: PoemProps) {
       </h2>
       <p className='font-bold mb-1'>{date}</p>
       <div className={classes.customScrollbar}>
-        <Markdown className='text-sm xs:text-base sm:text-lg max-h-[70vh] overflow-y-scroll transparent-scrollbar'>
+        <Markdown className='text-base xs:text-base sm:text-lg max-h-[70vh] overflow-y-scroll transparent-scrollbar'>
           {content}
         </Markdown>
       </div>
