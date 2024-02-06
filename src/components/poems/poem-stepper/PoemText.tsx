@@ -1,6 +1,5 @@
 import Markdown from 'react-markdown';
 import { getPoemData } from '../../../../lib/poems-util';
-import PoemControls from '@/components/poems/poem-stepper/PoemControls';
 import classes from './PoemText.module.css';
 
 interface PoemProps {
@@ -22,7 +21,6 @@ function PoemText({ poemId }: PoemProps) {
           {content}
         </Markdown>
       </div>
-      <PoemControls />
     </article>
   );
 }

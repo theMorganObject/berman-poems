@@ -3,13 +3,14 @@ import PoemText from './PoemText';
 
 interface PoemProps {
   poemId: string;
+  slugsArr: string[];
 }
 
-function PoemStepper({ poemId }: PoemProps) {
+function PoemStepper({ poemId, slugsArr }: PoemProps) {
   return (
     <div>
       <PoemText poemId={poemId} />
-      <PoemControls />
+      <PoemControls currentSlug={poemId} slugsArr={slugsArr} />
     </div>
   );
 }
