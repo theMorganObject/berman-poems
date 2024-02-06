@@ -1,0 +1,110 @@
+---
+title: "Ollie"
+date: "2020-09-12"
+excerpt: "Ollie is our Maine coon cat"
+isFeatured: "false"
+poemNumber: "23"
+id: "8587c5be-34d0-4305-badb-5ee3d13418da"
+location: "Unknown"
+---
+
+Ollie is our Maine coon cat  
+at sixteen pounds he was no kitten  
+the day we brought him home  
+from the Humane Society
+
+I still laugh recalling how  
+out of the blue my wife said  
+sweetie just get in the car  
+and don't ask any questions
+
+She drove and we were shortly  
+parked before the animal shelter  
+we had two dogs already so  
+I had some clue
+
+I poked around  
+fancied a smallish siamese  
+but Carroll had I think  
+already been there  
+made her choice
+
+In her usual calm and un-  
+assuming way she motioned me  
+to where this large and very orange  
+cat was riding quite contented  
+on the shoulder of a gal  
+who volunteered there
+
+My first thought was of our dogs  
+how would they handle this intruder  
+Carroll was quick to reassure me  
+Ollie was experienced  
+had lived with dogs
+
+And sure enough  
+without the slightest fuss  
+or hesitation he informed our poodles  
+(big ones, not the toys)  
+so long as they behaved themselves  
+their noses would be spared
+
+Not long after that I caught  
+our Lucca licking Ollie's neck  
+and Ollie tolerating it even  
+if only for a moment
+
+Now seven or eight years have passed  
+the dogs are showing signs of age  
+and Ollie too  
+it's hard to think  
+of life without them
+
+Ollie cat still loves to ride  
+on my shouders and to knead  
+Carroll's sweater swishing  
+his luxurious white-tipped tail
+
+I've heard that folks live longer  
+when they share their homes with dogs and cats  
+I know all three of ours  
+have done a lot  
+to humanize me
+
+With just my wife and I  
+here at the house our canine  
+feline friends  
+have helped to keep us sane  
+through this long year  
+of social distancing
+
+But that is saying nothing of  
+the thousand and one playful moments the laughter, the surprises  
+all the loving gestures  
+soulful looks  
+with which these fellow travellers  
+continue to enrich our lives
+
+I  
+I grew up with dogs  
+always loved them easily  
+but Ollie is the first feline  
+to purr his way  
+into my heart.  
+The only real mistake I made  
+was teaching him to talk  
+now he loudly lets me in  
+on his every mood and need  
+but when he's lying curled  
+up sleeping on the couch  
+there's nothing in the world  
+that breathes more deeply  
+of domestic peace
+
+It's written if the kingdom  
+were in heaven birds would  
+get there first  
+Ollie's kingdom is the couch  
+his heaven is rich with all the  
+birds he catches in his dreams  
+sleep well Ollie cat

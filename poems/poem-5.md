@@ -1,9 +1,11 @@
 ---
-title: 'Elk'
-date: '2020-08-25'
-excerpt: Aric's Birthday
-isFeatured: false
-id: 5
+title: "Elk"
+date: "2020-08-25"
+excerpt: "No way to put in words"
+isFeatured: "false"
+poemNumber: "5"
+id: "fc10d332-a73f-41cb-9e46-eb9066ef8d02"
+location: "Unknown"
 ---
 
 No way to put in words  
