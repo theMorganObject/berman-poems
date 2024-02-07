@@ -13,7 +13,7 @@ function Navigation() {
             {/* <RxHamburgerMenu /> */}
           </li>
         </Link>
-        <li className='hover:text-gray-6/90 transition-colors duration-150'>
+        <li className='hover:text-gray-6/90 cursor-pointer transition-colors duration-150'>
           <BsFillCalendarMonthFill />
         </li>
       </ul>
