@@ -13,7 +13,7 @@ function PoemText({ poemId }: PoemProps) {
   // console.log('poemNumber', poemNumber);
 
   return (
-    <article>
+    <article className='min-w-[250px] s:min-w-xs md:min-w-[400px]'>
       <h2 className='text-4xl text-center font-tangerine mt-2 mb-4 xs:text-5xl sm:text-6xl'>
         {title}
       </h2>
@@ -21,7 +21,7 @@ function PoemText({ poemId }: PoemProps) {
         <p>{date}</p>
         <p>Poem #{poemNumber}</p>
       </div>
-      <div className={classes.customScrollbar}>
+      <div className={`${classes.customScrollbar} ${classes.fixParagraph}`}>
         <Markdown className='text-base xs:text-base sm:text-lg max-h-[70vh] overflow-y-scroll transparent-scrollbar'>
           {content}
         </Markdown>
