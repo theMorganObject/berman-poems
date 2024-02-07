@@ -8,14 +8,19 @@ interface PoemProps {
 
 function PoemText({ poemId }: PoemProps) {
   const poemData = getPoemData(poemId);
-  const { title, date, content } = poemData;
+  const { title, date, poemNumber, content } = poemData;
+
+  // console.log('poemNumber', poemNumber);
 
   return (
     <article>
       <h2 className='text-4xl text-center font-tangerine mt-2 mb-4 xs:text-5xl sm:text-6xl'>
         {title}
       </h2>
-      <p className='font-bold mb-1'>{date}</p>
+      <div className='flex font-bold justify-between mb-1'>
+        <p>{date}</p>
+        <p>Poem #{poemNumber}</p>
+      </div>
       <div className={classes.customScrollbar}>
         <Markdown className='text-base xs:text-base sm:text-lg max-h-[70vh] overflow-y-scroll transparent-scrollbar'>
           {content}
