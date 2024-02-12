@@ -1,13 +1,13 @@
 import Image from 'next/image';
-import parchment from '../../../public/parchment-bg-5.jpg';
+import parchment from '../../../public/parchment-bg-8.jpg';
 
 export default function Background() {
   return (
     <Image
-      alt='Light gray parchment paper background'
+      alt='Light tan parchment paper background'
       src={parchment}
       placeholder='blur'
-      quality={100}
+      quality={40}
       fill
       sizes='100vw'
       style={{
