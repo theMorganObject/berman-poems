@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Navigation from '../UI/Navigation';
 import FilteredPoemsList from './FilteredPoemsList';
+import Modal from '../UI/Modal/Modal';
 
 export interface Poem {
   slug: string;
@@ -39,9 +40,17 @@ function AllPoems({ poems }: AllPoemsProps) {
   const [year, setYear] = useState<string>('2020');
   const [month, setMonth] = useState<string>('08');
   const [filteredPoems, setFilteredPoems] = useState<Poem[]>([]);
+  const [showModal, setShowModal] = useState<boolean>(false); // Manage modal visibility
 
   useEffect(() => {
-    const filtered = filterPoemsByYearAndMonth(poems, year, month);
+    const filtered = poems
+      .filter((poem) => {
+        const poemDate = new Date(poem.date);
+        const poemYear = poemDate.getFullYear().toString();
+        const poemMonth = (poemDate.getMonth() + 1).toString().padStart(2, '0');
+        return poemYear === year && poemMonth === month;
+      })
+      .sort((poemA, poemB) => poemA.date.localeCompare(poemB.date));
     setFilteredPoems(filtered);
   }, [poems, year, month]);
 
@@ -54,7 +63,14 @@ function AllPoems({ poems }: AllPoemsProps) {
         ~ {month} | {year} ~
       </h3>
       <FilteredPoemsList poems={filteredPoems} />
-      <Navigation />
+      <Navigation setShowModal={setShowModal} />
+      {showModal && (
+        <Modal
+          setYear={setYear}
+          setMonth={setMonth}
+          setShowModal={setShowModal}
+        />
+      )}
     </section>
   );
 }
