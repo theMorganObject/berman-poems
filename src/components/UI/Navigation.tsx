@@ -13,9 +13,11 @@ function Navigation() {
             {/* <RxHamburgerMenu /> */}
           </li>
         </Link>
-        <li className='hover:text-gray-6/90 cursor-pointer transition-colors duration-150'>
-          <BsFillCalendarMonthFill />
-        </li>
+        <Link href='poems/?show=true'>
+          <li className='hover:text-gray-6/90 cursor-pointer transition-colors duration-150'>
+            <BsFillCalendarMonthFill />
+          </li>
+        </Link>
       </ul>
     </nav>
   );

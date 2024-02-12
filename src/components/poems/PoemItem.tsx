@@ -1,8 +1,13 @@
 import Link from 'next/link';
+import { Poem } from './AllPoems';
 import { formattedTime } from '../../../lib/style-util';
 
-function PoemItem(props) {
-  const { title, date, excerpt, poemNumber, slug } = props.poem;
+interface PoemItemProps {
+  poem: Poem;
+}
+
+function PoemItem({ poem }: PoemItemProps) {
+  const { title, date, excerpt, poemNumber, slug } = poem;
   const linkPath = `/poems/${slug.replace(/\.md$/, '')}`;
 
   return (

@@ -1,6 +1,6 @@
 import AllPoems from '@/components/poems/AllPoems';
-import Navigation from '@/components/UI/Navigation';
 import { getAllPoems } from '../../../lib/poems-util';
+import Modal from '@/components/UI/Modal/Modal';
 
 async function getPoems() {
   const res = await getAllPoems();
@@ -9,13 +9,18 @@ async function getPoems() {
   return allPoems;
 }
 
-export default async function Home() {
+type SearchParamProps = {
+  searchParams: Record<string, string> | null | undefined;
+};
+
+export default async function Home({ searchParams }: SearchParamProps) {
   const allPoems = await getPoems();
+  const show = searchParams?.show;
 
   return (
     <main className='relative flex flex-col items-center'>
       <AllPoems poems={allPoems} />
-      <Navigation />
+      {show && <Modal />}
     </main>
   );
 }
