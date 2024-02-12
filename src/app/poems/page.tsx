@@ -1,5 +1,4 @@
 import AllPoems from '@/components/poems/AllPoems';
-import Navigation from '@/components/UI/Navigation';
 import { getAllPoems } from '../../../lib/poems-util';
 
 async function getPoems() {
@@ -15,7 +14,6 @@ export default async function Home() {
   return (
     <main className='relative flex flex-col items-center'>
       <AllPoems poems={allPoems} />
-      <Navigation />
     </main>
   );
 }
