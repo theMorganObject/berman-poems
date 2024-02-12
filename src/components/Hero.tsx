@@ -23,13 +23,13 @@ function Hero() {
       <div className='flex flex-col gap-6'>
         <Link
           href='/poems/poem-0001'
-          className='bg-gray-8 text-center border-2 border-gray-8 text-gray-1 hover:bg-gray-7 hover:text-gray-9 hover:bg-transparent active:bg-gray-9 active:text-gray-0 px-4 py-1 transition duration-200 ease-in xs:text-lg'
+          className='bg-transparent text-center border-2 border-gray-8 text-black hover:bg-gray-8 hover:text-gray-0 active:bg-gray-9 active:text-gray-1 px-2 py-1 transition duration-200 ease-in xs:text-lg'
         >
           <button>Read Today&apos;s Poem</button>
         </Link>
         <Link
           href='/poems'
-          className='bg-transparent text-center border-2 border-gray-8 text-black hover:bg-gray-8 hover:text-gray-0 active:bg-gray-8 active:text-gray-1 px-2 py-1 transition duration-200 ease-in'
+          className='bg-transparent text-center border-2 border-gray-8 text-black hover:bg-gray-8 hover:text-gray-0 active:bg-gray-8 active:text-gray-1 px-2 py-1 transition duration-200 ease-in xs:text-lg'
         >
           <button>Browse All Poems</button>
         </Link>

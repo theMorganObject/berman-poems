@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Navigation from '../UI/Navigation';
 import FilteredPoemsList from './FilteredPoemsList';
 import Modal from '../UI/Modal/Modal';
+import { monthNumberToName } from '../../../lib/date-utils';
 
 export interface Poem {
   slug: string;
@@ -54,14 +55,13 @@ function AllPoems({ poems }: AllPoemsProps) {
     setFilteredPoems(filtered);
   }, [poems, year, month]);
 
+  const monthName = monthNumberToName(month);
+
   return (
     <section className='max-h-screen overflow-y-scroll p-2 pb-16'>
-      <h2 className='text-6xl text-center font-tangerine mt-2 mb-2 xs:text-6xl sm:text-7xl'>
-        All Poems
+      <h2 className='text-6xl text-center font-tangerine mt-2 mb-8 xs:text-6xl sm:text-7xl'>
+        {monthName}, {year}
       </h2>
-      <h3 className='text-center text-lg tracking-wide font-bold mb-9 xs:text-lg sm:text-xl'>
-        ~ {month} | {year} ~
-      </h3>
       <FilteredPoemsList poems={filteredPoems} />
       <Navigation setShowModal={setShowModal} />
       {showModal && (
