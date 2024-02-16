@@ -67,26 +67,6 @@ function Modal({ setYear, setMonth, setShowModal }: ModalProps) {
         <div className='text-center'>
           <div>
             <h3 className='text-5xl font-tangerine font-bold text-gray-9 mb-4'>
-              Year
-            </h3>
-            <div className='grid grid-cols-3 gap-4 mb-8'>
-              {years.map((year) => (
-                <button
-                  key={year}
-                  onClick={() => handleYearClick(year)}
-                  className={`px-2 py-1 font-bold rounded-md shadow-sm focus:outline-none focus:ring-4 focus:ring-gray-8 ${
-                    activeYear === year
-                      ? 'bg-gray-8 border-2 border-gray-8 text-gray-0'
-                      : 'bg-gray-3 border-2 border-gray-8 text-gray-9'
-                  } hover:bg-gray-8 hover:text-gray-0`}
-                >
-                  {year}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className='text-5xl font-tangerine font-bold text-gray-9 mb-4'>
               Month
             </h3>
             <div className='grid grid-cols-4 gap-4 mb-8'>
@@ -94,13 +74,33 @@ function Modal({ setYear, setMonth, setShowModal }: ModalProps) {
                 <button
                   key={month}
                   onClick={() => handleMonthClick(month)}
-                  className={`px-2 py-1 font-bold rounded-md shadow-sm focus:outline-none focus:ring-4 focus:ring-gray-8 ${
+                  className={`px-2 py-1 font-bold rounded-md shadow-sm focus:outline-none focus:ring-4 hover:ring-4 ${
                     activeMonth === month
-                      ? 'bg-gray-8 border-2 border-gray-8 text-gray-0'
-                      : 'bg-gray-3 border-2 border-gray-8 text-gray-9'
-                  } hover:bg-gray-8 hover:text-gray-0`}
+                      ? 'border-2 border-gray-8 ring-4 ring-gray-8'
+                      : 'bg-gray-0 text-gray-8 border-2 border-gray-8'
+                  }`}
                 >
                   {month}
+                </button>
+              ))}
+            </div>
+          </div>
+          <div>
+            <h3 className='text-5xl font-tangerine font-bold text-gray-9 mb-4'>
+              Year
+            </h3>
+            <div className='grid grid-cols-3 gap-4 mb-10'>
+              {years.map((year) => (
+                <button
+                  key={year}
+                  onClick={() => handleYearClick(year)}
+                  className={`px-2 py-1 font-bold rounded-md shadow-sm focus:outline-none focus:ring-4 hover:ring-4 ${
+                    activeYear === year
+                      ? 'border-2 border-gray-8 ring-4 ring-gray-8'
+                      : 'bg-gray-0 text-gray-8 border-2 border-gray-8'
+                  }`}
+                >
+                  {year}
                 </button>
               ))}
             </div>
@@ -108,7 +108,7 @@ function Modal({ setYear, setMonth, setShowModal }: ModalProps) {
           <div className='flex justify-center mt-4 gap-6'>
             <button
               onClick={() => setShowModal(false)}
-              className='px-4 py-2 bg-gray-0 text-gray-9 text-base tracking-wide font-bold rounded-md shadow-sm border-2 border-gray-9 hover:bg-gray-4 focus:outline-none focus:ring-4 focus:ring-gray-8'
+              className='px-8 py-2 bg-gray-0 text-gray-8 text-2xl tracking-wide font-bold rounded-md shadow-sm border-2 border-gray-9 focus:outline-none focus:ring-4 hover:ring-4'
             >
               Search
             </button>
