@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { monthNumberToShortMonthName } from '../../../../lib/date-utils';
 
 interface ModalProps {
   setYear: (year: string) => void;
@@ -39,7 +40,7 @@ function Modal({ setYear, setMonth, setShowModal }: ModalProps) {
 
   const monthsToShow = (() => {
     if (activeYear === '2020') {
-      return ['08', '09', '10', '11', '12'];
+      return allMonths.slice(7); // earliest poems are from Aug of 2020
     } else if (activeYear === currentYear) {
       return allMonths.slice(0, Number(currentMonth));
     }
@@ -67,26 +68,6 @@ function Modal({ setYear, setMonth, setShowModal }: ModalProps) {
         <div className='text-center'>
           <div>
             <h3 className='text-5xl font-tangerine font-bold text-gray-9 mb-4'>
-              Month
-            </h3>
-            <div className='grid grid-cols-4 gap-4 mb-8'>
-              {monthsToShow.map((month) => (
-                <button
-                  key={month}
-                  onClick={() => handleMonthClick(month)}
-                  className={`px-2 py-1 font-bold rounded-md shadow-sm focus:outline-none focus:ring-4 hover:ring-4 ${
-                    activeMonth === month
-                      ? 'border-2 border-gray-8 ring-4 ring-gray-8'
-                      : 'bg-gray-0 text-gray-8 border-2 border-gray-8'
-                  }`}
-                >
-                  {month}
-                </button>
-              ))}
-            </div>
-          </div>
-          <div>
-            <h3 className='text-5xl font-tangerine font-bold text-gray-9 mb-4'>
               Year
             </h3>
             <div className='grid grid-cols-3 gap-4 mb-10'>
@@ -103,6 +84,30 @@ function Modal({ setYear, setMonth, setShowModal }: ModalProps) {
                   {year}
                 </button>
               ))}
+            </div>
+          </div>
+          <div>
+            <h3 className='text-5xl font-tangerine font-bold text-gray-9 mb-4'>
+              Month
+            </h3>
+            <div className='grid grid-cols-3 gap-4 mb-8'>
+              {monthsToShow.map((month) => {
+                const shortMonthName = monthNumberToShortMonthName(month);
+
+                return (
+                  <button
+                    key={month}
+                    onClick={() => handleMonthClick(month)}
+                    className={`px-2 py-1 font-bold rounded-md shadow-sm focus:outline-none focus:ring-4 hover:ring-4 ${
+                      activeMonth === month
+                        ? 'border-2 border-gray-8 ring-4 ring-gray-8'
+                        : 'bg-gray-0 text-gray-8 border-2 border-gray-8'
+                    }`}
+                  >
+                    {shortMonthName}
+                  </button>
+                );
+              })}
             </div>
           </div>
           <div className='flex justify-center mt-4 gap-6'>

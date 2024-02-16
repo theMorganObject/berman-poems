@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import Navigation from '../UI/Navigation';
 import FilteredPoemsList from './FilteredPoemsList';
 import Modal from '../UI/Modal/Modal';
-import { monthNumberToName } from '../../../lib/date-utils';
+import { monthNumberToFullMonthName } from '../../../lib/date-utils';
 
 export interface Poem {
   slug: string;
@@ -29,7 +29,6 @@ function filterPoemsByYearAndMonth(
     .filter((poem) => {
       const poemDate = new Date(poem.date);
       const poemYear = poemDate.getFullYear().toString();
-      // Adjust the month to match the input format (assuming '01'-'12')
       const poemMonth = (poemDate.getMonth() + 1).toString().padStart(2, '0');
 
       return poemYear === year && poemMonth === month;
@@ -41,7 +40,7 @@ function AllPoems({ poems }: AllPoemsProps) {
   const [year, setYear] = useState<string>('2020');
   const [month, setMonth] = useState<string>('08');
   const [filteredPoems, setFilteredPoems] = useState<Poem[]>([]);
-  const [showModal, setShowModal] = useState<boolean>(false); // Manage modal visibility
+  const [showModal, setShowModal] = useState<boolean>(false);
 
   useEffect(() => {
     const filtered = poems
@@ -54,8 +53,7 @@ function AllPoems({ poems }: AllPoemsProps) {
       .sort((poemA, poemB) => poemA.date.localeCompare(poemB.date));
     setFilteredPoems(filtered);
   }, [poems, year, month]);
-
-  const monthName = monthNumberToName(month);
+  const monthName = monthNumberToFullMonthName(month);
 
   return (
     <section className='max-h-screen overflow-y-scroll p-2 pb-16'>

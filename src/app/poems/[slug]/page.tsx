@@ -13,7 +13,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const allSLugs = await getPoemSlugs();
 
   return (
-    <section className='relative flex flex-col items-center max-h-screen overflow-y-scroll p-2 pb-16'>
+    <section className='flex flex-col items-center max-h-screen overflow-y-scroll p-2'>
       <PoemStepper poemId={`${poemID}`} slugsArr={allSLugs} />
     </section>
   );

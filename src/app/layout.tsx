@@ -27,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang='en'>
-      <body className={`${sourceSans3.variable} ${tangerine.variable}`}>
+      <body
+        className={`relative min-h-screen ${sourceSans3.variable} ${tangerine.variable}`}
+      >
         {children}
         <Background />
       </body>
