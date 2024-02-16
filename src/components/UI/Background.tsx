@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import parchment from '../../../public/parchment-bg-8.jpg';
+import parchment from '../../../public/parchment-bg-8.webp';
 
 export default function Background() {
   return (
@@ -7,7 +7,7 @@ export default function Background() {
       alt='Light tan parchment paper background'
       src={parchment}
       placeholder='blur'
-      quality={40}
+      quality={100}
       fill
       sizes='100vw'
       style={{
