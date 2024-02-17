@@ -19,8 +19,10 @@ function PoemText({ poemId }: PoemProps) {
         <p>{date}</p>
         <p>&#8470; {poemNumber}</p>
       </div>
-      <div className={`${classes.customScrollbar} ${classes.fixParagraph}`}>
-        <Markdown className='text-base xs:text-base sm:text-lg max-h-[70vh] overflow-y-scroll transparent-scrollbar'>
+      <div
+        className={`customScrollbar max-h-[75vh] min-w-[250px] ${classes.fixParagraph}`}
+      >
+        <Markdown className='text-base xs:text-base sm:text-lg max-h-[70vh]'>
           {content}
         </Markdown>
       </div>
