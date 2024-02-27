@@ -1,5 +1,5 @@
-import { HiHome } from 'react-icons/hi2';
-import { BsFillCalendarMonthFill } from 'react-icons/bs';
+import { IoHome } from 'react-icons/io5';
+import { IoMenu } from 'react-icons/io5';
 import Link from 'next/link';
 
 interface NavigationProps {
@@ -12,14 +12,14 @@ function Navigation({ setShowModal }: NavigationProps) {
       <ul className='flex justify-between items-center text-4xl text-gray-8/80'>
         <Link href='/'>
           <li className='hover:text-gray-6/90 transition-colors duration-150'>
-            <HiHome />
+            <IoHome />
           </li>
         </Link>
         <li
           onClick={() => setShowModal(true)}
           className='hover:text-gray-6/90 cursor-pointer transition-colors duration-150'
         >
-          <BsFillCalendarMonthFill />
+          <IoMenu />
         </li>
       </ul>
     </nav>
