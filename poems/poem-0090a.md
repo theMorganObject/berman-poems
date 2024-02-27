@@ -1,15 +1,12 @@
 ---
 title: "too easy"
 date: "2020-11-10"
-excerpt: "We've made killing too easy"
+excerpt: "Too Easy"
 isFeatured: "false"
 poemNumber: "90a"
 id: "741abef4-5d01-4e80-9728-687df00f98d9"
 location: "Unknown"
 ---
-
-We've made killing too easy
-a song for our times
 
 Every week it seems I read  
 some child has shot himself  

@@ -1,9 +1,9 @@
 ---
-title: "Vladimir-Suzdal 1961"
+title: "Vladimir/Suzdal 1961"
 date: "2020-10-10"
 excerpt: "Did people really live in them"
 isFeatured: "false"
-poemNumber: "54b"
+poemNumber: "54"
 id: "ad1054d5-c898-4aba-a407-7ab51f19653e"
 location: "Grants Pass OR"
 ---
