@@ -1,36 +1,61 @@
 ---
-title: "The Big Thaw"
-date: "2020-11-11  "
-excerpt: "As goes the ice"
+title: "Ode To My Nyckelharpa"
+date: "2020-11-14"
+excerpt: "Bosse Karlsson made for me"
 isFeatured: "false"
 poemNumber: "94a"
 id: "106306c4-a3df-43ad-9f7d-c3698291e8e9"
 location: "Unknown"
 ---
 
-As goes the ice  
-the permafrost  
-so goes the world  
-that we have known 2
-it's way to big  
-to even think  
-although the fires  
-across the globe  
-Australia  
-the Amazon  
-the Pantanal  
-Siberia  
-the whole western  
-United States  
-already give  
-a foretaste of  
-what's yet to come
+(nyckel = key / harpa = fiddle)
 
-What's to be done  
-we're like a ship  
-set on a course  
-too big to turn  
-in time to miss  
-the  
-in our path  
-still if we
+Bosse Karlsson made for me  
+this marvellous viola  
+that can play in tune  
+thanks to three rows of keys  
+or tangents set in place  
+to stop the strings  
+at proper intervals  
+a boon to Swedish farmers  
+fingers stiff from fieldwork  
+or perhaps like me  
+too lazy or too late  
+to learn the violin
+
+But it's more than ease  
+of playing  
+it's the quality of sound  
+delights both audience  
+and player  
+it's the added resonance  
+almost harp-like  
+of sympathetic strings  
+that form a sonic aura  
+round each note  
+played by the bow
+
+After six hundred years  
+it disappeared  
+until one man  
+revived it from the dead  
+Eric Sahlstrom who  
+taught his countrymen  
+the secrets of construction  
+and the art  
+of making this folk fiddle  
+come alive
+
+Now it's moved out  
+beyond its native land  
+across the planet  
+even here in Oregon  
+it has its coterie  
+of players  
+folkies like me  
+who love its tonal palette  
+love the tunes  
+some sad and soulful  
+some that set  
+both heart and feet  
+dancing to Swedish polskas

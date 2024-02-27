@@ -8,10 +8,8 @@ const SearchByNumber: React.FC = () => {
   const [urlString, setUrlString] = useState<string>('0001');
 
   const specialBaseNumbers = [
-    '3',
     '6',
     '44',
-    '54',
     '90',
     '94',
     '115',
