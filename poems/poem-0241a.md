@@ -28,4 +28,4 @@ for creatures with intelligence
 like ours  
 is that they've kept their presence  
 hidden  
-safe beyond the drifting stars
+far away beyond the drifting stars
