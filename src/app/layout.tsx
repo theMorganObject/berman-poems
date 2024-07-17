@@ -1,7 +1,9 @@
+import Image from 'next/image';
 import type { Metadata } from 'next';
 import { Source_Sans_3, Tangerine } from 'next/font/google';
 import './globals.css';
-import Background from '@/components/UI/Background';
+import BackgroundImage from '@/components/UI/BackgroundImage';
+import parchment from '../../public/parchment-bg-8.webp';
 
 const sourceSans3 = Source_Sans_3({
   subsets: ['latin'],
@@ -30,8 +32,18 @@ export default function RootLayout({
       <body
         className={`relative min-h-screen ${sourceSans3.variable} ${tangerine.variable}`}
       >
-        {children}
-        <Background />
+        <BackgroundImage
+          image={
+            <Image
+              src={parchment}
+              alt='Light tan parchment paper background with wheat grain texture'
+              className='object-cover object-center'
+              fill
+            />
+          }
+        >
+          {children}
+        </BackgroundImage>
       </body>
     </html>
   );
