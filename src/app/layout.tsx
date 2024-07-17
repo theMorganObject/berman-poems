@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Source_Sans_3, Tangerine } from 'next/font/google';
 import './globals.css';
 import BackgroundImage from '@/components/UI/BackgroundImage';
-import parchment from '../../public/parchment-bg-8.webp';
+import parchment from '../../public/parchment-bg.webp';
 
 const sourceSans3 = Source_Sans_3({
   subsets: ['latin'],
