@@ -59,7 +59,7 @@ const SearchByNumber: React.FC = () => {
   ];
 
   return (
-    <div className='flex justify-center items-center'>
+    <div className='flex justify-center min-h-screen items-center'>
       <div className='max-w-96 flex flex-col items-center justify-center pt-16'>
         <div className='bg-white text-black font-bold text-xl shadow-md rounded-lg min-w-52 p-4 mb-4'>
           {poemNumber || 'Enter Poem Number'}
