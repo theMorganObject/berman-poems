@@ -16,7 +16,7 @@ function Hero() {
       <p className='max-w-72 text-center mt-6 italic xs:text-lg'>
         A living and ongoing collection
         <br />
-        Over 7 poems, one per day
+        Over 700 poems, one per day
         <br />
         since August 21st, 2020.
       </p>
