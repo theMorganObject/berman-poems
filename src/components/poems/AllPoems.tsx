@@ -20,22 +20,6 @@ export interface AllPoemsProps {
   poems: Poem[];
 }
 
-function filterPoemsByYearAndMonth(
-  poems: Poem[],
-  year: string,
-  month: string
-): Poem[] {
-  return poems
-    .filter((poem) => {
-      const poemDate = new Date(poem.date);
-      const poemYear = poemDate.getFullYear().toString();
-      const poemMonth = (poemDate.getMonth() + 1).toString().padStart(2, '0');
-
-      return poemYear === year && poemMonth === month;
-    })
-    .sort((poemA, poemB) => poemA.date.localeCompare(poemB.date));
-}
-
 function AllPoems({ poems }: AllPoemsProps) {
   const [year, setYear] = useState<string>('2020');
   const [month, setMonth] = useState<string>('08');
