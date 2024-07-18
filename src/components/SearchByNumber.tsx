@@ -2,31 +2,18 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import {
+  getPoemUrlString,
+  isValidPoemNumber,
+  keypadButtons,
+} from '../../lib/search-util';
 
 const SearchByNumber: React.FC = () => {
   const [poemNumber, setPoemNumber] = useState<string>('');
-  const [urlString, setUrlString] = useState<string>('0001');
+  const [urlString, setUrlString] = useState<string>('');
 
-  console.log('💥urlString', urlString);
-
-  // hook to handle poem routes that have an '-a" after them
   useEffect(() => {
-    const specialBaseNumbers = [
-      '6',
-      '44',
-      '90',
-      '94',
-      '241',
-      '718',
-      '726',
-      '735',
-    ]; // Base numbers without suffixes, as the user would input them, without any padStart
-    let suffix = '';
-
-    if (specialBaseNumbers.includes(poemNumber)) {
-      suffix = 'a';
-    }
-    const updatedUrlString = poemNumber.padStart(4, '0') + suffix;
+    const updatedUrlString = getPoemUrlString(poemNumber);
     setUrlString(updatedUrlString);
   }, [poemNumber]);
 
@@ -38,29 +25,10 @@ const SearchByNumber: React.FC = () => {
     setPoemNumber((current) => current.slice(0, -1));
   };
 
-  const isValidPoemNumber = () => {
-    const number = parseInt(poemNumber, 10);
-    return number >= 1 && number <= 754;
-  };
-
-  const keypadButtons: string[] = [
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    'Clear',
-    '0',
-    'Delete',
-  ];
-
   return (
     <div className='flex justify-center min-h-screen items-center'>
       <div className='max-w-96 flex flex-col items-center justify-center pt-16'>
+        {/* Current Search Display */}
         <div className='bg-white text-black font-bold text-xl shadow-md rounded-lg min-w-52 p-4 mb-4'>
           {poemNumber || 'Enter Poem Number'}
         </div>
@@ -83,7 +51,7 @@ const SearchByNumber: React.FC = () => {
         </div>
 
         {/* Search Button */}
-        {isValidPoemNumber() ? (
+        {isValidPoemNumber(poemNumber) ? (
           <Link
             href={`/poems/poem-${urlString}`}
             className='px-8 py-2 bg-gray-0 text-gray-8 text-2xl tracking-wide font-bold rounded-md shadow-lg border-2 border-gray-9 focus:outline-none focus:ring-4 hover:ring-4 mt-4'
@@ -100,7 +68,7 @@ const SearchByNumber: React.FC = () => {
         )}
 
         {/* Poem Number Error Handling */}
-        {poemNumber && !isValidPoemNumber() && (
+        {poemNumber && !isValidPoemNumber(poemNumber) && (
           <div className='mt-4 text-red-500'>{`Please select a value between 1 and 754`}</div>
         )}
       </div>
