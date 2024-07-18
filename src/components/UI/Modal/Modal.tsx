@@ -7,9 +7,17 @@ interface ModalProps {
   setYear: (year: string) => void;
   setMonth: (month: string) => void;
   setShowModal: (show: boolean) => void;
+  initialYear: string;
+  initialMonth: string;
 }
 
-function Modal({ setYear, setMonth, setShowModal }: ModalProps) {
+function Modal({
+  setYear,
+  setMonth,
+  setShowModal,
+  initialYear,
+  initialMonth,
+}: ModalProps) {
   const years = ['2020', '2021', '2022', '2023', '2024'];
   const allMonths = [
     '01',
@@ -28,8 +36,8 @@ function Modal({ setYear, setMonth, setShowModal }: ModalProps) {
 
   const currentYear = new Date().getFullYear().toString();
   const currentMonth = (new Date().getMonth() + 1).toString().padStart(2, '0');
-  const [activeYear, setActiveYear] = useState<string>(currentYear);
-  const [activeMonth, setActiveMonth] = useState<string>(currentMonth);
+  const [activeYear, setActiveYear] = useState<string>(initialYear);
+  const [activeMonth, setActiveMonth] = useState<string>(initialMonth);
 
   useEffect(() => {
     if (activeYear === currentYear) {

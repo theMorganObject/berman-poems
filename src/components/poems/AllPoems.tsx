@@ -25,6 +25,8 @@ function AllPoems({ poems }: AllPoemsProps) {
   const [month, setMonth] = useState<string>('08');
   const [filteredPoems, setFilteredPoems] = useState<Poem[]>([]);
   const [showModal, setShowModal] = useState<boolean>(false);
+  const [activeYear, setActiveYear] = useState<string>('2020');
+  const [activeMonth, setActiveMonth] = useState<string>('08');
 
   useEffect(() => {
     const filtered = poems
@@ -37,6 +39,7 @@ function AllPoems({ poems }: AllPoemsProps) {
       .sort((poemA, poemB) => poemA.date.localeCompare(poemB.date));
     setFilteredPoems(filtered);
   }, [poems, year, month]);
+
   const monthName = monthNumberToFullMonthName(month);
 
   return (
@@ -48,9 +51,17 @@ function AllPoems({ poems }: AllPoemsProps) {
       <Navigation setShowModal={setShowModal} />
       {showModal && (
         <Modal
-          setYear={setYear}
-          setMonth={setMonth}
+          setYear={(newYear) => {
+            setYear(newYear);
+            setActiveYear(newYear);
+          }}
+          setMonth={(newMonth) => {
+            setMonth(newMonth);
+            setActiveMonth(newMonth);
+          }}
           setShowModal={setShowModal}
+          initialYear={activeYear}
+          initialMonth={activeMonth}
         />
       )}
     </section>
