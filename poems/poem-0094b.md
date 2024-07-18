@@ -1,6 +1,6 @@
 ---
 title: "The Big Thaw"
-date: "2020-11-11  "
+date: "2020-11-11"
 excerpt: "As goes the ice"
 isFeatured: "false"
 poemNumber: "94b"
