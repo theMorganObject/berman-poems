@@ -4,19 +4,19 @@ import { useState, useEffect } from 'react';
 import { monthNumberToShortMonthName } from '../../../../lib/date-utils';
 
 interface ModalProps {
+  initialYear: string;
+  initialMonth: string;
   setYear: (year: string) => void;
   setMonth: (month: string) => void;
   setShowModal: (show: boolean) => void;
-  initialYear: string;
-  initialMonth: string;
 }
 
 function Modal({
-  setYear,
-  setMonth,
-  setShowModal,
   initialYear,
   initialMonth,
+  setYear, // pass filter state to parent component
+  setMonth, // pass filter state to parent component
+  setShowModal,
 }: ModalProps) {
   const years = ['2020', '2021', '2022', '2023', '2024'];
   const allMonths = [
@@ -36,41 +36,41 @@ function Modal({
 
   const currentYear = new Date().getFullYear().toString();
   const currentMonth = (new Date().getMonth() + 1).toString().padStart(2, '0');
-  const [activeYear, setActiveYear] = useState<string>(initialYear);
-  const [activeMonth, setActiveMonth] = useState<string>(initialMonth);
+  const [selectedYear, setSelectedYear] = useState<string>(initialYear); // for UI styling purposes, parent state update handled by setYear prop
+  const [selectedMonth, setSelectedMonth] = useState<string>(initialMonth); // for UI styling purposes, parent state update handled by setMonth prop
 
   useEffect(() => {
-    if (activeYear === currentYear) {
-      setActiveMonth(currentMonth);
+    // prevents selecting future months.
+    if (
+      selectedYear === currentYear &&
+      Number(selectedMonth) > Number(currentMonth)
+    ) {
+      setSelectedMonth(currentMonth);
       setMonth(currentMonth);
     }
-  }, [activeYear, currentMonth, currentYear, setMonth]);
+  }, [selectedYear, selectedMonth, currentMonth, currentYear, setMonth]);
 
   const handleYearClick = (year: string) => {
     setYear(year);
-    setActiveYear(year);
-    // Reset month to January or current month if the current year is selected
-    if (year === currentYear && Number(activeMonth) > Number(currentMonth)) {
-      setMonth(currentMonth);
-      setActiveMonth(currentMonth);
-    }
+    setSelectedYear(year);
   };
 
   const handleMonthClick = (month: string) => {
     setMonth(month);
-    setActiveMonth(month);
+    setSelectedMonth(month);
   };
 
   const isMonthInactive = (month: string) => {
-    if (activeYear === '2020' && Number(month) <= 7) {
-      return true;
+    // Determine if a month should be inactive based on the selected year and current month
+    if (selectedYear === '2020' && Number(month) <= 7) {
+      return true; // Months January to July are inactive for 2020, no poems written in this time
     } else if (
-      activeYear === currentYear &&
+      selectedYear === currentYear &&
       Number(month) > Number(currentMonth)
     ) {
-      return true;
+      return true; // Future months in the current year are inactive
     }
-    return false;
+    return false; // Other months are active
   };
 
   return (
@@ -88,7 +88,7 @@ function Modal({
                   key={year}
                   onClick={() => handleYearClick(year)}
                   className={`px-2 py-1 font-bold rounded-md shadow-sm focus:outline-none focus:ring-4 hover:ring-4 ${
-                    activeYear === year
+                    selectedYear === year
                       ? 'border-2 border-gray-8 ring-4 ring-gray-8'
                       : 'bg-gray-0 text-gray-8 border-2 border-gray-8'
                   }`}
@@ -117,7 +117,7 @@ function Modal({
                     className={`px-2 py-1 font-bold rounded-md shadow-sm focus:outline-none ${
                       isInactive
                         ? 'bg-gray-2 text-gray-6 cursor-not-allowed'
-                        : activeMonth === month
+                        : selectedMonth === month
                         ? 'border-2 border-gray-8 ring-4 ring-gray-8'
                         : 'bg-gray-0 text-gray-8 border-2 border-gray-8 hover:ring-4'
                     }`}
