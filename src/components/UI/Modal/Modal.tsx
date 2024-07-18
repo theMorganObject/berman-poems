@@ -6,16 +6,16 @@ import { monthNumberToShortMonthName } from '../../../../lib/date-utils';
 interface ModalProps {
   initialYear: string;
   initialMonth: string;
-  setYear: (year: string) => void;
-  setMonth: (month: string) => void;
+  setYear: (year: string) => void; // parent component state
+  setMonth: (month: string) => void; // parent component state
   setShowModal: (show: boolean) => void;
 }
 
 function Modal({
   initialYear,
   initialMonth,
-  setYear, // pass filter state to parent component
-  setMonth, // pass filter state to parent component
+  setYear,
+  setMonth,
   setShowModal,
 }: ModalProps) {
   const years = ['2020', '2021', '2022', '2023', '2024'];
