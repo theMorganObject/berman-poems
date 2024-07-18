@@ -7,27 +7,27 @@ const SearchByNumber: React.FC = () => {
   const [poemNumber, setPoemNumber] = useState<string>('');
   const [urlString, setUrlString] = useState<string>('0001');
 
-  const specialBaseNumbers = [
-    '6',
-    '44',
-    '90',
-    '94',
-    '241',
-    '718',
-    '726',
-    '735',
-  ]; // Base numbers without suffixes, as the user would input them, without any padStart
+  console.log('💥urlString', urlString);
 
   // hook to handle poem routes that have an '-a" after them
   useEffect(() => {
+    const specialBaseNumbers = [
+      '6',
+      '44',
+      '90',
+      '94',
+      '241',
+      '718',
+      '726',
+      '735',
+    ]; // Base numbers without suffixes, as the user would input them, without any padStart
     let suffix = '';
 
-    if (specialBaseNumbers.some((base) => poemNumber.startsWith(base))) {
+    if (specialBaseNumbers.includes(poemNumber)) {
       suffix = 'a';
     }
     const updatedUrlString = poemNumber.padStart(4, '0') + suffix;
     setUrlString(updatedUrlString);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [poemNumber]);
 
   const appendDigit = (digit: string) => {
