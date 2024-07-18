@@ -56,7 +56,7 @@ function AllPoems({ poems }: AllPoemsProps) {
   const monthName = monthNumberToFullMonthName(month);
 
   return (
-    <section className='max-h-screen overflow-y-scroll customScrollbar p-2 pb-16'>
+    <section className='min-h-screen overflow-y-scroll customScrollbar p-2 pb-16'>
       <h2 className='text-6xl text-center font-tangerine mt-2 mb-8 xs:text-6xl sm:text-7xl'>
         {monthName}, {year}
       </h2>
