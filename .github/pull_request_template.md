@@ -1,6 +1,4 @@
-# TRELLO TICKET TITLE
-
-## Trello Ticket Link: [NUMBER](PASTE_LINK_HERE)
+# [TICKET_TITLE](PASTE_LINK_HERE)
 
 ## **Changes** // reasons why
 
@@ -13,5 +11,3 @@
 -
 -
 -
-
----
