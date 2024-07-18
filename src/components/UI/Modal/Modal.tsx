@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { monthNumberToShortMonthName } from '../../../../lib/date-utils';
 
 interface ModalProps {
@@ -18,6 +18,8 @@ function Modal({
   setMonth,
   setShowModal,
 }: ModalProps) {
+  const modalRef = useRef<HTMLDivElement>(null);
+
   const years = ['2020', '2021', '2022', '2023', '2024'];
   const allMonths = [
     '01',
@@ -38,6 +40,23 @@ function Modal({
   const currentMonth = (new Date().getMonth() + 1).toString().padStart(2, '0');
   const [selectedYear, setSelectedYear] = useState<string>(initialYear); // for UI styling purposes, parent state update handled by setYear prop
   const [selectedMonth, setSelectedMonth] = useState<string>(initialMonth); // for UI styling purposes, parent state update handled by setMonth prop
+
+  useEffect(() => {
+    // Add event listener to detect clicks outside the modal content
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node)
+      ) {
+        setShowModal(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [setShowModal]);
 
   useEffect(() => {
     // prevents selecting future months.
@@ -75,7 +94,10 @@ function Modal({
 
   return (
     <div className='fixed inset-0 bg-gray-9 bg-opacity-90 overflow-y-auto h-full w-full flex items-center justify-center'>
-      <div className='w-60 bg-gray-0 shadow-lg rounded-md px-4 py-6 xs:w-72 xs:p-8 sm:w-96'>
+      <div
+        ref={modalRef}
+        className='w-60 bg-gray-0 shadow-lg rounded-md px-4 py-6 xs:w-72 xs:p-8 sm:w-96'
+      >
         <div className='text-center'>
           {/* YEAR SECTION */}
           <div>
@@ -116,7 +138,7 @@ function Modal({
                     disabled={isInactive}
                     className={`px-2 py-1 font-bold rounded-md shadow-sm focus:outline-none ${
                       isInactive
-                        ? 'bg-gray-2 text-gray-6 cursor-not-allowed'
+                        ? 'bg-gray-2 border-2 text-gray-6 cursor-not-allowed'
                         : selectedMonth === month
                         ? 'border-2 border-gray-8 ring-4 ring-gray-8'
                         : 'bg-gray-0 text-gray-8 border-2 border-gray-8 hover:ring-4'
