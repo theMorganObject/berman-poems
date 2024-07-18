@@ -22,11 +22,13 @@ function FilteredPoemsList({ poems }: FilteredPoemsListProps) {
   }
 
   return (
-    <ul>
-      {poems.map((poem) => (
-        <PoemItem key={poem.slug} poem={poem} />
-      ))}
-    </ul>
+    <div className='h-full max-h-[75vh] overflow-y-scroll customScrollbar'>
+      <ul className='w-full'>
+        {poems.map((poem) => (
+          <PoemItem key={poem.slug} poem={poem} />
+        ))}
+      </ul>
+    </div>
   );
 }
 
