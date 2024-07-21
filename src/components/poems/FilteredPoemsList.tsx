@@ -23,7 +23,7 @@ function FilteredPoemsList({ poems }: FilteredPoemsListProps) {
 
   return (
     <div className='h-full max-h-[75vh] overflow-y-scroll customScrollbar'>
-      <ul className='w-full'>
+      <ul className='w-full md:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>
         {poems.map((poem) => (
           <PoemItem key={poem.slug} poem={poem} />
         ))}

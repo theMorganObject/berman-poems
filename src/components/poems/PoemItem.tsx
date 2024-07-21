@@ -13,25 +13,26 @@ function PoemItem({ poem }: PoemItemProps) {
   return (
     <li className='mb-6 mx-4 mt-4'>
       <Link href={linkPath}>
-        <div className='relative flex items-start bg-gray-0 bg-opacity-80 border border-gray-8 p-4 rounded shadow-md transform transition-transform hover:scale-105'>
-          <div className='flex flex-col justify-between'>
+        <div className='flex flex-col items-center justify-between bg-gray-0 bg-opacity-80 border border-gray-8 p-4 rounded shadow-md transform transition-transform hover:scale-105'>
+          {/* title and exceprt */}
+          <h3 className='font-tangerine font-bold text-4xl'>{title}</h3>
+          <p className='italic text-lg mb-2'>&quot;{excerpt}...&quot;</p>
+
+          {/* poem number + date*/}
+          <div className='flex text-xl gap-20'>
+            <p>
+              &#8470; <span className='font-bold'>{poemNumber}</span>
+            </p>
             <div className='flex'>
-              <p className='text-2xl font-bold'>
+              <p className='font-bold'>
                 {date.slice(-2).startsWith('0')
                   ? date.slice(-1)
                   : date.slice(-2)}
               </p>
-              <p className='font-tangerine text-lg leading-[2.45rem] mr-6'>
+              <p className='font-tangerine leading-4'>
                 {createDateSuffix(date.slice(-2))}
               </p>
             </div>
-            <p className='absolute bottom-2 right-4 text-base'>
-              &#8470; <span className='font-bold'>{poemNumber}</span>
-            </p>
-          </div>
-          <div className='flex flex-col'>
-            <h3 className='font-tangerine text-2xl'>{title}</h3>
-            <p className='italic ml-4 mb-4'>&quot;{excerpt}...&quot;</p>
           </div>
         </div>
       </Link>
