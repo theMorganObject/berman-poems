@@ -13,13 +13,16 @@ function PoemItem({ poem }: PoemItemProps) {
   return (
     <li className='mb-6 mx-4 mt-4'>
       <Link href={linkPath}>
-        <div className='flex flex-col items-center justify-between bg-gray-0 bg-opacity-80 border border-gray-8 p-4 rounded shadow-md transform transition-transform hover:scale-105'>
+        <div className='flex flex-col items-center justify-between bg-gray-0 bg-opacity-80 border border-gray-8 py-4 px-8 rounded shadow-md transform transition-transform hover:scale-105'>
           {/* title and exceprt */}
-          <h3 className='font-tangerine font-bold text-4xl'>{title}</h3>
+          {/* ChatGPT: text-ellipsis is not applying to the title. Why? */}
+          <h3 className='font-tangerine font-bold text-4xl tracking-wide mb-2'>
+            {title}
+          </h3>
           <p className='italic text-lg mb-2'>&quot;{excerpt}...&quot;</p>
 
           {/* poem number + date*/}
-          <div className='flex text-xl gap-20'>
+          <div className='flex text-xl gap-28'>
             <p>
               &#8470; <span className='font-bold'>{poemNumber}</span>
             </p>

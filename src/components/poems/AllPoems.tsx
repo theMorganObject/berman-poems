@@ -45,8 +45,8 @@ function AllPoems({ poems }: AllPoemsProps) {
   const monthName = monthNumberToFullMonthName(selectedMonth);
 
   return (
-    <section className='h-screen p-2 pb-16'>
-      <h2 className='text-6xl text-center font-tangerine mt-2 mb-8 xs:text-6xl sm:text-7xl'>
+    <section className='h-screen'>
+      <h2 className='text-6xl text-center font-tangerine mt-2 mb-5 xs:text-6xl sm:text-7xl'>
         {monthName}, {selectedYear}
       </h2>
       <FilteredPoemsList poems={filteredPoems} />
