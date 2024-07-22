@@ -14,7 +14,7 @@ function getRandomPoemNumber() {
 const buttonTexts = [
   "Dive into Today's Poem",
   'Discover a Random Poem',
-  "Explore Today's Featured Poem",
+  "Explore Today's Poem",
   'Begin Your Journey',
   'Read a Poem Now',
   'Experience a Poem',
