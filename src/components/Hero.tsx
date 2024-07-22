@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { GiQuillInk } from 'react-icons/gi';
+import RandomPoemButton from './RandomPoemButton';
 
 function Hero() {
   return (
@@ -21,15 +22,10 @@ function Hero() {
         since August 21st, 2020.
       </p>
       <div className='flex flex-col gap-4 mt-8 px-9 w-full max-w-md'>
-        <Link
-          href='/poems/poem-0001'
-          className='bg-transparent text-center border-2 border-gray-8 text-black hover:bg-gray-8 hover:text-gray-0 active:bg-gray-9 active:text-gray-1 px-4 py-2 transition duration-200 ease-in xs:text-lg'
-        >
-          Read Today&apos;s Poem
-        </Link>
+        <RandomPoemButton />
         <Link
           href='/poems'
-          className='bg-transparent text-center border-2 border-gray-8 text-black hover:bg-gray-8 hover:text-gray-0 active:bg-gray-8 active:text-gray-1 px-4 py-2 transition duration-200 ease-in xs:text-lg'
+          className='bg-transparent text-center border-2 border-gray-8 text-black hover:bg-gray-8 hover:text-gray-0 active:bg-gray-8 active:text-gray-1 px-4 py-2 transition duration-200 ease-in xs:text-lg block w-full h-full'
         >
           Browse All Poems
         </Link>
