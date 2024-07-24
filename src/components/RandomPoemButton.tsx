@@ -12,15 +12,12 @@ function getRandomPoemNumber() {
 
 // Array of possible button texts
 const buttonTexts = [
-  "Dive into Today's Poem",
-  'Discover a Random Poem',
+  'Discover a Poem',
   "Explore Today's Poem",
-  'Begin Your Journey',
   'Read a Poem Now',
   'Experience a Poem',
   'Uncover a Poem',
   'Immerse in Poetry',
-  'Find Inspiration',
 ];
 
 function getRandomButtonText() {

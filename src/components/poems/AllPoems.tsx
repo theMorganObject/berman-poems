@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Navigation from '../UI/Navigation';
 import FilteredPoemsList from './FilteredPoemsList';
 import Modal from '../UI/Modal/Modal';
 import { monthNumberToFullMonthName } from '../../../lib/date-utils';
@@ -24,7 +23,24 @@ function AllPoems({ poems }: AllPoemsProps) {
   const [selectedYear, setSelectedYear] = useState<string>('2020');
   const [selectedMonth, setSelectedMonth] = useState<string>('08');
   const [filteredPoems, setFilteredPoems] = useState<Poem[]>([]);
-  const [showModal, setShowModal] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(true);
+
+  useEffect(() => {
+    const handleToggleModal = () => {
+      setShowModal((prev) => !prev);
+    };
+
+    const searchIcon = document.getElementById('search-icon');
+    if (searchIcon) {
+      searchIcon.addEventListener('click', handleToggleModal);
+    }
+
+    return () => {
+      if (searchIcon) {
+        searchIcon.removeEventListener('click', handleToggleModal);
+      }
+    };
+  }, []);
 
   useEffect(() => {
     // Filter poems based on selectedYear and selectedMonth
@@ -50,7 +66,6 @@ function AllPoems({ poems }: AllPoemsProps) {
         {monthName}, {selectedYear}
       </h2>
       <FilteredPoemsList poems={filteredPoems} />
-      <Navigation setShowModal={setShowModal} />
       {showModal && (
         <Modal
           initialYear={selectedYear}

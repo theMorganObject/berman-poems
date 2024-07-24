@@ -4,6 +4,7 @@ import { Source_Sans_3, Tangerine } from 'next/font/google';
 import './globals.css';
 import BackgroundImage from '@/components/UI/BackgroundImage';
 import parchment from '../../public/parchment-bg.webp';
+import Navigation from '@/components/UI/Navigation';
 
 const sourceSans3 = Source_Sans_3({
   subsets: ['latin'],
@@ -43,6 +44,7 @@ export default function RootLayout({
           }
         >
           {children}
+          <Navigation />
         </BackgroundImage>
       </body>
     </html>
