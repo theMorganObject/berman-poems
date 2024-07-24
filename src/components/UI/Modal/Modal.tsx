@@ -93,7 +93,7 @@ function Modal({
   };
 
   return (
-    <div className='fixed inset-0 bg-gray-9 bg-opacity-90 overflow-y-auto h-full w-full flex items-center justify-center'>
+    <div className='fixed inset-0 z-20 bg-gray-9 bg-opacity-90 overflow-y-auto h-full w-full flex items-center justify-center'>
       <div
         ref={modalRef}
         className='w-60 bg-gray-0 shadow-lg rounded-md px-4 py-6 xs:w-72 xs:p-8 sm:w-96'
