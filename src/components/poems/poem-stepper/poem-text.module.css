@@ -1,3 +1,7 @@
 .fixParagraph p {
-  margin-bottom: 1.8rem;
+  padding-bottom: 1.8rem;
+}
+
+.fixParagraph p:last-child {
+  padding-bottom: 12rem;
 }

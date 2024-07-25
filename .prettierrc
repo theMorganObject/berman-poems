@@ -5,7 +5,9 @@
     {
       "files": "*.md",
       "options": {
-        "singleQuote": false
+        "singleQuote": false,
+        "proseWrap": "preserve",
+        "trailingComma": "none"
       }
     }
   ]
