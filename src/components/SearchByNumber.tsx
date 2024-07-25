@@ -12,6 +12,9 @@ const SearchByNumber: React.FC = () => {
   const [poemNumber, setPoemNumber] = useState<string>('');
   const [urlString, setUrlString] = useState<string>('');
 
+  const sharedButtonClasses =
+    'px-12 py-2 text-2xl tracking-wide font-bold rounded-md border-2 border-gray-9 focus:outline-none focus:ring-4 sm:py-3 sm:text-3xl';
+
   useEffect(() => {
     const updatedUrlString = getPoemUrlString(poemNumber);
     setUrlString(updatedUrlString);
@@ -26,50 +29,45 @@ const SearchByNumber: React.FC = () => {
   };
 
   return (
-    <div className='flex justify-center min-h-screen items-center'>
-      <div className='max-w-96 flex flex-col items-center justify-center pt-16'>
-        {/* Current Search Display */}
-        <div className='bg-white text-black font-bold text-xl shadow-md rounded-lg min-w-52 p-4 mb-4'>
-          {poemNumber || 'Enter Poem Number'}
-        </div>
+    <div className='flex flex-col min-h-screen justify-center gap-12 p-4 sm:w-96'>
+      {/* Current Search Display */}
+      <div className='bg-white text-black font-bold text-2xl shadow-md rounded-lg w-full p-4 text-center sm:text-3xl sm:py-6'>
+        {poemNumber || 'Enter Poem Number'}
+      </div>
 
-        {/* Keypad UI */}
-        <div className='grid grid-cols-3 gap-4'>
-          {keypadButtons.map((button) => (
-            <button
-              key={button}
-              onClick={() => {
-                if (button === 'Delete') clearLastDigit();
-                else if (button === 'Clear') setPoemNumber('');
-                else appendDigit(button);
-              }}
-              className='px-2 py-1 font-bold bg-gray-0 border-2 border-gray-8 rounded-md shadow-md focus:outline-none focus:ring-4 hover:ring-4'
-            >
-              {button}
-            </button>
-          ))}
-        </div>
+      {/* Keypad UI */}
+      <div className='grid grid-cols-3 gap-4'>
+        {keypadButtons.map((button) => (
+          <button
+            key={button}
+            onClick={() => {
+              if (button === 'Delete') clearLastDigit();
+              else if (button === 'Clear') setPoemNumber('');
+              else appendDigit(button);
+            }}
+            className='px-4 py-2 font-bold text-xl bg-gray-0 border-2 border-gray-8 rounded-md shadow-md focus:outline-none focus:ring-4 hover:ring-4 sm:text-2xl'
+          >
+            {button}
+          </button>
+        ))}
+      </div>
 
-        {/* Search Button */}
+      {/* Search Button */}
+      <div className='w-full flex justify-center'>
         {isValidPoemNumber(poemNumber) ? (
           <Link
             href={`/poems/poem-${urlString}`}
-            className='px-8 py-2 bg-gray-0 text-gray-8 text-2xl tracking-wide font-bold rounded-md shadow-lg border-2 border-gray-9 focus:outline-none focus:ring-4 hover:ring-4 mt-4'
+            className={`${sharedButtonClasses} bg-gray-0 text-gray-8 shadow-lg  hover:ring-4`}
           >
             Search
           </Link>
         ) : (
           <button
             disabled
-            className='px-8 py-2 bg-gray-6 text-gray-0 text-2xl tracking-wide font-bold rounded-md shadow-md border-2 border-gray-9 focus:outline-none focus:ring-4 cursor-not-allowed mt-4'
+            className={`${sharedButtonClasses} bg-gray-6 text-gray-0 shadow-md cursor-not-allowed`}
           >
             Search
           </button>
-        )}
-
-        {/* Poem Number Error Handling */}
-        {poemNumber && !isValidPoemNumber(poemNumber) && (
-          <div className='mt-4 text-red-500'>{`Please select a value between 1 and 754`}</div>
         )}
       </div>
     </div>
