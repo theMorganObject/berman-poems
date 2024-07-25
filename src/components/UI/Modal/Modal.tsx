@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import { monthNumberToShortMonthName } from '../../../../lib/date-utils';
+import Link from 'next/link';
 
 interface ModalProps {
   initialYear: string;
@@ -96,7 +97,7 @@ function Modal({
     <div className='fixed inset-0 z-20 bg-gray-9 bg-opacity-90 overflow-y-auto h-full w-full flex items-center justify-center'>
       <div
         ref={modalRef}
-        className='w-60 bg-gray-0 shadow-lg rounded-md px-4 py-6 xs:w-72 xs:p-8 sm:w-96'
+        className='w-11/12 h-11/12 bg-gray-0 shadow-lg rounded-md p-4 xs:w-80 sm:w-[31rem] sm:p-6'
       >
         <div className='text-center'>
           {/* YEAR SECTION */}
@@ -104,12 +105,12 @@ function Modal({
             <h3 className='text-5xl font-tangerine font-bold text-gray-9 mb-4'>
               Year
             </h3>
-            <div className='grid grid-cols-3 gap-4 mb-10'>
+            <div className='grid grid-cols-3 gap-4 mb-10 sm:gap-6'>
               {years.map((year) => (
                 <button
                   key={year}
                   onClick={() => handleYearClick(year)}
-                  className={`px-2 py-1 font-bold rounded-md shadow-sm focus:outline-none focus:ring-4 hover:ring-4 ${
+                  className={`px-2 py-1 font-bold text-xl rounded-md shadow-sm focus:outline-none focus:ring-4 hover:ring-4 sm:px-3 sm:py-2  ${
                     selectedYear === year
                       ? 'border-2 border-gray-8 ring-4 ring-gray-8'
                       : 'bg-gray-0 text-gray-8 border-2 border-gray-8'
@@ -126,7 +127,7 @@ function Modal({
             <h3 className='text-5xl font-tangerine font-bold text-gray-9 mb-4'>
               Month
             </h3>
-            <div className='grid grid-cols-3 gap-4 mb-8'>
+            <div className='grid grid-cols-3 gap-4 mb-10 sm:gap-6'>
               {allMonths.map((month) => {
                 const shortMonthName = monthNumberToShortMonthName(month);
                 const isInactive = isMonthInactive(month);
@@ -136,7 +137,7 @@ function Modal({
                     key={month}
                     onClick={() => !isInactive && handleMonthClick(month)}
                     disabled={isInactive}
-                    className={`px-2 py-1 font-bold rounded-md shadow-sm focus:outline-none ${
+                    className={`px-2 py-1 font-bold text-xl rounded-md shadow-sm focus:outline-none sm:px-3 sm:py-2 ${
                       isInactive
                         ? 'bg-gray-2 border-2 text-gray-6 cursor-not-allowed'
                         : selectedMonth === month
@@ -152,13 +153,19 @@ function Modal({
           </div>
 
           {/* SEARCH BUTTON */}
-          <div className='flex justify-center mt-4 gap-6'>
+          <div className='flex flex-col sm:flex-row-reverse justify-center mt-4 gap-6 sm:justify-between'>
             <button
               onClick={() => setShowModal(false)}
-              className='px-8 py-2 bg-gray-0 text-gray-8 text-2xl tracking-wide font-bold rounded-md shadow-sm border-2 border-gray-9 focus:outline-none focus:ring-4 hover:ring-4'
+              className='px-4 py-2 bg-gray-0 text-gray-8 text-2xl tracking-wide font-bold rounded-md shadow-sm border-2 border-gray-9 focus:outline-none focus:ring-4 hover:ring-4 sm:px-6 sm:py-3'
             >
-              Search
+              Search Month
             </button>
+            <Link
+              href='/poems/search'
+              className='px-4 py-2 bg-gray-0 text-gray-8 text-2xl tracking-wide font-bold rounded-md shadow-sm border-2 border-gray-9 focus:outline-none focus:ring-4 hover:ring-4 sm:px-6 sm:py-3'
+            >
+              Search Poem #
+            </Link>
           </div>
         </div>
       </div>
