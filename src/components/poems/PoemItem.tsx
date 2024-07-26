@@ -15,7 +15,6 @@ function PoemItem({ poem }: PoemItemProps) {
       <Link href={linkPath}>
         <div className='flex flex-col items-center justify-between bg-gray-0 bg-opacity-80 border border-gray-8 py-4 px-8 rounded shadow-md transform transition-transform hover:scale-105'>
           {/* title and exceprt */}
-          {/* ChatGPT: text-ellipsis is not applying to the title. Why? */}
           <h3 className='font-tangerine font-bold text-4xl tracking-wide mb-2'>
             {title}
           </h3>

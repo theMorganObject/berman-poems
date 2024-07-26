@@ -38,36 +38,28 @@ function PoemControls({ slugsArr, currentSlug }: PoemControlsProps) {
   }, []);
 
   return (
-    <nav
-      className={`fixed top-1/2 left-1/2 transform -translate-x-1/2 w-64 xs:w-80 xs:px-2 sm:w-96 sm:px-4 md:w-1/2 transition-opacity duration-500 ${
-        visible ? 'opacity-90' : 'opacity-0'
-      }`}
-    >
-      <ul className='flex justify-between items-center text-4xl text-gray-800'>
-        {hasPrevious ? (
-          <Link href={`/poems/${slugsArr[currentIndex - 1]}`}>
-            <li className='hover:text-gray-6/90 transition-colors duration-150 cursor-pointer'>
-              <IoArrowBackCircleSharp />
-            </li>
-          </Link>
-        ) : (
-          <li className='opacity-50'>
-            <IoArrowBackCircleSharp />
-          </li>
-        )}
-        {hasNext ? (
-          <Link href={`/poems/${slugsArr[currentIndex + 1]}`}>
-            <li className='hover:text-gray-6/90 transition-colors duration-150 cursor-pointer'>
-              <IoArrowForwardCircleSharp />
-            </li>
-          </Link>
-        ) : (
-          <li className='opacity-50'>
-            <IoArrowForwardCircleSharp />
-          </li>
-        )}
-      </ul>
-    </nav>
+    <>
+      {hasPrevious && (
+        <Link
+          href={`/poems/${slugsArr[currentIndex - 1]}`}
+          className={`fixed top-1/2 left-4 transform -translate-y-1/2 text-4xl text-gray-8/80 transition-opacity duration-500 ${
+            visible ? 'opacity-90' : 'opacity-0'
+          } hover:text-gray-6/90 transition-colors duration-150 cursor-pointer`}
+        >
+          <IoArrowBackCircleSharp />
+        </Link>
+      )}
+      {hasNext && (
+        <Link
+          href={`/poems/${slugsArr[currentIndex + 1]}`}
+          className={`fixed top-1/2 right-4 transform -translate-y-1/2 text-4xl text-gray-8/80 transition-opacity duration-500 ${
+            visible ? 'opacity-90' : 'opacity-0'
+          } hover:text-gray-6/90 transition-colors duration-150 cursor-pointer`}
+        >
+          <IoArrowForwardCircleSharp />
+        </Link>
+      )}
+    </>
   );
 }
 
