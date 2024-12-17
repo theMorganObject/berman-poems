@@ -6,16 +6,16 @@ import Modal from '../UI/Modal/Modal';
 import { monthNumberToFullMonthName } from '@/lib/date-utils';
 
 export interface Poem {
-  slug: string;
+  _id: string; // MongoDB ID
   title: string;
   date: string;
   excerpt: string;
   isFeatured: boolean | string;
-  poemNumber: string;
+  poemNumber: number;
   content: string;
 }
 
-export interface AllPoemsProps {
+interface AllPoemsProps {
   poems: Poem[];
 }
 

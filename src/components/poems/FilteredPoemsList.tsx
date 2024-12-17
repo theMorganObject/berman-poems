@@ -13,19 +13,15 @@ function FilteredPoemsList({ poems }: FilteredPoemsListProps) {
           Sorry, but there are currently no poems available for the selected
           time frame.
         </p>
-        <p>
-          Please limit your search to August-November of 2020. New poems are
-          being made available on an ongoing basis.
-        </p>
       </aside>
     );
   }
 
   return (
     <div className='max-h-[75vh] overflow-y-scroll customScrollbar'>
-      <ul className='w-full md:grid md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4'>
+      <ul className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
         {poems.map((poem) => (
-          <PoemItem key={poem.slug} poem={poem} />
+          <PoemItem key={poem._id} poem={poem} />
         ))}
       </ul>
     </div>
