@@ -8,13 +8,15 @@ import {
 } from 'react-icons/io5';
 
 interface PoemControlsProps {
-  slugsArr: string[];
-  currentSlug: string;
+  poemIds: string[];
+  currentId: string;
 }
-function PoemControls({ slugsArr, currentSlug }: PoemControlsProps) {
-  const currentIndex = slugsArr.findIndex((slug) => slug === currentSlug);
+
+function PoemControls({ poemIds, currentId }: PoemControlsProps) {
+  const currentIndex = poemIds.findIndex((id) => id === currentId);
   const hasPrevious = currentIndex > 0;
-  const hasNext = currentIndex < slugsArr.length - 1;
+  const hasNext = currentIndex < poemIds.length - 1;
+
   const [visible, setVisible] = useState(true);
 
   useEffect(() => {
@@ -29,7 +31,6 @@ function PoemControls({ slugsArr, currentSlug }: PoemControlsProps) {
 
     document.addEventListener('mousemove', showNav);
     document.addEventListener('scroll', showNav);
-
     return () => {
       clearTimeout(timerId);
       document.removeEventListener('mousemove', showNav);
@@ -41,7 +42,7 @@ function PoemControls({ slugsArr, currentSlug }: PoemControlsProps) {
     <>
       {hasPrevious && (
         <Link
-          href={`/poems/${slugsArr[currentIndex - 1]}`}
+          href={`/poems/${poemIds[currentIndex - 1]}`}
           className={`fixed top-1/2 left-4 transform -translate-y-1/2 text-4xl text-gray-8/80 transition-opacity duration-500 ${
             visible ? 'opacity-90' : 'opacity-0'
           } hover:text-gray-6/90 transition-colors duration-150 cursor-pointer`}
@@ -51,7 +52,7 @@ function PoemControls({ slugsArr, currentSlug }: PoemControlsProps) {
       )}
       {hasNext && (
         <Link
-          href={`/poems/${slugsArr[currentIndex + 1]}`}
+          href={`/poems/${poemIds[currentIndex + 1]}`}
           className={`fixed top-1/2 right-4 transform -translate-y-1/2 text-4xl text-gray-8/80 transition-opacity duration-500 ${
             visible ? 'opacity-90' : 'opacity-0'
           } hover:text-gray-6/90 transition-colors duration-150 cursor-pointer`}

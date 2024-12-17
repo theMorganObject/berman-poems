@@ -1,16 +1,17 @@
 import PoemControls from './PoemControls';
 import PoemText from './PoemText';
+import { Poem } from '@/types/poem';
 
-interface PoemProps {
-  poemId: string;
-  slugsArr: string[];
+interface PoemStepperProps {
+  poem: Poem;
+  poemIds: string[];
 }
 
-function PoemStepper({ poemId, slugsArr }: PoemProps) {
+function PoemStepper({ poem, poemIds }: PoemStepperProps) {
   return (
     <div>
-      <PoemText poemId={poemId} />
-      <PoemControls currentSlug={poemId} slugsArr={slugsArr} />
+      <PoemText poem={poem} />
+      <PoemControls currentId={poem._id} poemIds={poemIds} />
     </div>
   );
 }

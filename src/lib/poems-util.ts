@@ -1,4 +1,4 @@
-import { MongoClient } from 'mongodb';
+import { MongoClient, ObjectId } from 'mongodb';
 import { Poem } from '@/types/poem';
 
 const MONGODB_URI = process.env.MONGODB_URI;
@@ -33,44 +33,44 @@ export async function getAllPoems(): Promise<Poem[]> {
   }
 }
 
-// import fs from 'fs';
-// import path from 'path';
-// import matter from 'gray-matter';
+// Fetch all poem IDs sorted by date
+export async function getAllPoemIds(): Promise<string[]> {
+  try {
+    const collection = await connectToDatabase();
 
-// const poemsDirectory = path.join(process.cwd(), 'poems');
+    const poems = await collection
+      .find({}, { projection: { _id: 1 } })
+      .sort({ date: 1 })
+      .toArray();
 
-// export function getPoemsFiles() {
-//   return fs.readdirSync(poemsDirectory);
-// }
+    return poems.map((poem) => poem._id.toString());
+  } catch (error) {
+    console.error('Error fetching poem IDs:', error);
+    throw new Error('Failed to fetch poem IDs');
+  }
+}
 
-// export function getPoemData(poemIdentifier) {
-//   const poemSlug = poemIdentifier.replace(/\.md$/, ''); // Strip the .md extension
-//   const filePath = path.join(poemsDirectory, `${poemSlug}.md`);
-//   const fileContent = fs.readFileSync(filePath, 'utf-8');
-//   const { data, content } = matter(fileContent); // Parse the Markdown file
+// Fetch a single poem by ID
+export async function getPoemById(poemId: string): Promise<Poem | null> {
+  try {
+    const collection = await connectToDatabase();
 
-//   const poemData = {
-//     slug: poemSlug, // NOTE: just use "...data" here?
-//     title: data.title,
-//     date: data.date,
-//     excerpt: data.excerpt,
-//     isFeatured: data.isFeatured,
-//     poemNumber: data.poemNumber,
-//     content: content,
-//   };
+    const poem = await collection.findOne({ _id: new ObjectId(poemId) });
 
-//   return poemData;
-// }
+    if (!poem) return null;
 
-// NOTE(1): this used to be -1 : 1, but that returned the data in reverse chronological order, which was harder to work with.
-
-// export function getSortedPoemSlugs() {
-//   const poemsFiles = getPoemsFiles();
-//   const poemSlugs = poemsFiles.map((poemFile) => {
-//     return poemFile.replace(/\.md$/, '');
-//   });
-
-//   const sortedPoemSlugs = poemSlugs.sort();
-
-//   return sortedPoemSlugs;
-// }
+    return {
+      _id: poem._id.toString(),
+      title: poem.title || 'Untitled',
+      date: poem.date || '',
+      excerpt: poem.excerpt || '',
+      isFeatured: poem.isFeatured || false,
+      poemNumber: poem.poemNumber || 0,
+      location: poem.location || 'Unknown',
+      content: poem.content || '',
+    };
+  } catch (error) {
+    console.error('Error fetching poem:', error);
+    throw new Error('Failed to fetch poem');
+  }
+}
