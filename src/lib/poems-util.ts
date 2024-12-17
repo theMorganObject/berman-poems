@@ -6,7 +6,10 @@ const DATABASE_NAME = 'poetry_db';
 const COLLECTION_NAME = 'poems';
 
 async function connectToDatabase() {
-  const client = new MongoClient(MONGODB_URI || '');
+  const client = new MongoClient(MONGODB_URI || '', {
+    tls: true,
+    serverSelectionTimeoutMS: 5000,
+  });
   await client.connect();
   return client.db(DATABASE_NAME).collection(COLLECTION_NAME);
 }
@@ -33,7 +36,6 @@ export async function getAllPoems(): Promise<Poem[]> {
   }
 }
 
-// Fetch all poem IDs sorted by date
 export async function getAllPoemIds(): Promise<string[]> {
   try {
     const collection = await connectToDatabase();
@@ -50,7 +52,6 @@ export async function getAllPoemIds(): Promise<string[]> {
   }
 }
 
-// Fetch a single poem by ID
 export async function getPoemById(poemId: string): Promise<Poem | null> {
   try {
     const collection = await connectToDatabase();
