@@ -1,4 +1,4 @@
-import { getSortedPoemSlugs } from '../../../../lib/poems-util';
+import { getSortedPoemSlugs } from '@/lib/poems-util';
 
 import PoemStepper from '@/components/poems/poem-stepper/PoemStepper';
 

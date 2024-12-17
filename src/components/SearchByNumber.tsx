@@ -6,7 +6,7 @@ import {
   getPoemUrlString,
   isValidPoemNumber,
   keypadButtons,
-} from '../../lib/search-util';
+} from '@/lib/search-util';
 
 const SearchByNumber: React.FC = () => {
   const [poemNumber, setPoemNumber] = useState<string>('');

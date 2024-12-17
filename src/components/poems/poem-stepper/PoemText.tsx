@@ -1,5 +1,5 @@
 import Markdown from 'react-markdown';
-import { getPoemData } from '../../../../lib/poems-util';
+import { getPoemData } from '@/lib/poems-util';
 import classes from './poem-text.module.css';
 
 interface PoemProps {

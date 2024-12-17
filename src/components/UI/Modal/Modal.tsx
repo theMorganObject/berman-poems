@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
-import { monthNumberToShortMonthName } from '../../../../lib/date-utils';
+import { monthNumberToShortMonthName } from '@/lib/date-utils';
 import Link from 'next/link';
 
 interface ModalProps {

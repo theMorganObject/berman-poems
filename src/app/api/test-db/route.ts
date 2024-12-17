@@ -1,5 +1,5 @@
 import { NextRequest } from 'next/server';
-import { pingDatabase } from '../../../../lib/mongodb';
+import { pingDatabase } from '@/lib/mongodb';
 
 export async function GET(req: NextRequest) {
   try {

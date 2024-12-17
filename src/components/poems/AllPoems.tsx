@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react';
 import FilteredPoemsList from './FilteredPoemsList';
 import Modal from '../UI/Modal/Modal';
-import { monthNumberToFullMonthName } from '../../../lib/date-utils';
+import { monthNumberToFullMonthName } from '@/lib/date-utils';
 
 export interface Poem {
   slug: string;

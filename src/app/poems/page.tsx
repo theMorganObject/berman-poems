@@ -1,5 +1,5 @@
 import AllPoems from '@/components/poems/AllPoems';
-import { getAllPoems } from '../../../lib/poems-util';
+import { getAllPoems } from '@/lib/poems-util';
 
 async function getPoems() {
   const res = await getAllPoems();

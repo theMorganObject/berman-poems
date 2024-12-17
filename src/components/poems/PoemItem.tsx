@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { Poem } from './AllPoems';
-import { createDateSuffix } from '../../../lib/style-util';
+import { createDateSuffix } from '@/lib/style-util';
 
 interface PoemItemProps {
   poem: Poem;
