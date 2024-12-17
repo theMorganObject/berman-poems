@@ -38,3 +38,4 @@ next-env.d.ts
 
 # dev
 /stash/
+upload-poems.js
