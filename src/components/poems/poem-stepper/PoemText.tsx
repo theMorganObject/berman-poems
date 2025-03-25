@@ -1,14 +1,13 @@
 import Markdown from 'react-markdown';
-import { getPoemData } from '../../../../lib/poems-util';
 import classes from './poem-text.module.css';
+import { Poem } from '@/types/poem';
 
-interface PoemProps {
-  poemId: string;
+interface PoemTextProps {
+  poem: Poem;
 }
 
-function PoemText({ poemId }: PoemProps) {
-  const poemData = getPoemData(poemId);
-  const { title, date, poemNumber, content } = poemData;
+function PoemText({ poem }: PoemTextProps) {
+  const { title, date, poemNumber, content } = poem;
 
   return (
     <article className='min-w-[250px] s:min-w-xs md:min-w-[400px]'>

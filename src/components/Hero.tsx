@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { GiQuillInk } from 'react-icons/gi';
 import RandomPoemButton from './RandomPoemButton';
 

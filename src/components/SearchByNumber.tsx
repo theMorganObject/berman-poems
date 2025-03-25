@@ -1,31 +1,53 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import Link from 'next/link';
-import {
-  getPoemUrlString,
-  isValidPoemNumber,
-  keypadButtons,
-} from '../../lib/search-util';
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+import { keypadButtons } from '@/lib/search-util';
 
 const SearchByNumber: React.FC = () => {
   const [poemNumber, setPoemNumber] = useState<string>('');
-  const [urlString, setUrlString] = useState<string>('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  const router = useRouter();
 
   const sharedButtonClasses =
     'px-12 py-2 text-2xl tracking-wide font-bold rounded-md border-2 border-gray-9 focus:outline-none focus:ring-4 sm:py-3 sm:text-3xl';
 
-  useEffect(() => {
-    const updatedUrlString = getPoemUrlString(poemNumber);
-    setUrlString(updatedUrlString);
-  }, [poemNumber]);
-
   const appendDigit = (digit: string) => {
     setPoemNumber((current) => `${current}${digit}`);
+    setError(null);
   };
 
   const clearLastDigit = () => {
     setPoemNumber((current) => current.slice(0, -1));
+    setError(null);
+  };
+
+  const clearInput = () => {
+    setPoemNumber('');
+    setError(null);
+  };
+
+  const fetchPoemIdAndNavigate = async () => {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch(`/api/get-poem-id?number=${poemNumber}`);
+      const data = await response.json();
+
+      if (response.ok && data.id) {
+        router.push(`/poems/${data.id}`);
+      } else {
+        setError('Poem not found');
+      }
+    } catch (err) {
+      console.error('Error fetching poem:', err);
+      setError('Failed to fetch poem');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -42,7 +64,7 @@ const SearchByNumber: React.FC = () => {
             key={button}
             onClick={() => {
               if (button === 'Delete') clearLastDigit();
-              else if (button === 'Clear') setPoemNumber('');
+              else if (button === 'Clear') clearInput();
               else appendDigit(button);
             }}
             className='px-4 py-2 font-bold text-xl bg-gray-0 border-2 border-gray-8 rounded-md shadow-md focus:outline-none focus:ring-4 hover:ring-4 sm:text-2xl'
@@ -54,22 +76,21 @@ const SearchByNumber: React.FC = () => {
 
       {/* Search Button */}
       <div className='w-full flex justify-center'>
-        {isValidPoemNumber(poemNumber) ? (
-          <Link
-            href={`/poems/poem-${urlString}`}
-            className={`${sharedButtonClasses} bg-gray-0 text-gray-8 shadow-lg  hover:ring-4`}
-          >
-            Search
-          </Link>
-        ) : (
-          <button
-            disabled
-            className={`${sharedButtonClasses} bg-gray-6 text-gray-0 shadow-md cursor-not-allowed`}
-          >
-            Search
-          </button>
-        )}
+        <button
+          onClick={fetchPoemIdAndNavigate}
+          disabled={!poemNumber || loading}
+          className={`${sharedButtonClasses} ${
+            loading || !poemNumber
+              ? 'bg-gray-6 text-gray-0 shadow-md cursor-not-allowed'
+              : 'bg-gray-0 text-gray-8 shadow-lg hover:ring-4'
+          }`}
+        >
+          {loading ? 'Searching...' : 'Search'}
+        </button>
       </div>
+
+      {/* Error */}
+      {error && <p className='text-red-500 text-center'>{error}</p>}
     </div>
   );
 };

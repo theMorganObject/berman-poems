@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import { Poem } from './AllPoems';
-import { createDateSuffix } from '../../../lib/style-util';
+import { createDateSuffix } from '@/lib/style-util';
 
 interface PoemItemProps {
   poem: Poem;
 }
 
 function PoemItem({ poem }: PoemItemProps) {
-  const { title, date, excerpt, poemNumber, slug } = poem;
-  const linkPath = `/poems/${slug.replace(/\.md$/, '')}`;
+  const { title, date, excerpt, poemNumber, _id } = poem;
+  const linkPath = `/poems/${_id}`; // Use _id for dynamic links
 
   return (
     <li className='mb-6 mx-4 mt-4'>
@@ -19,8 +19,6 @@ function PoemItem({ poem }: PoemItemProps) {
             {title}
           </h3>
           <p className='italic text-lg mb-2'>&quot;{excerpt}...&quot;</p>
-
-          {/* poem number + date*/}
           <div className='flex text-xl gap-28'>
             <p>
               &#8470; <span className='font-bold'>{poemNumber}</span>
