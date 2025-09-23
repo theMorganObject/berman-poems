@@ -3,7 +3,8 @@ import PoemStepper from '@/components/poems/poem-stepper/PoemStepper';
 
 export const revalidate = 3600; // Revalidate every hour
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page(props: { params: Promise<{ slug: string }> }) {
+  const params = await props.params;
   const poemId = params.slug;
   const allPoemIds = await getAllPoemIds();
   const poem = await getPoemById(poemId);
