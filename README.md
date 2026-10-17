@@ -2,6 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Use Node.js 24 LTS (see `.nvmrc`). With nvm installed, run `nvm use`,
+then install dependencies with `npm ci`.
+
+Create `.env.local` with `MONGODB_URI` pointing to the poetry database.
+Database-backed pages require access to that MongoDB instance. The production
+build also needs network access to download the Google fonts used by `next/font`.
+
 First, run the development server:
 
 ```bash
@@ -15,6 +22,17 @@ bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+Before committing changes, run:
+
+```bash
+npm run lint
+npm run typecheck
+npm run build
+```
+
+Tailwind stays on the latest 3.x release; upgrading to v4 requires a separate
+CSS and styling migration.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

@@ -21,9 +21,9 @@ function PoemText({ poem }: PoemTextProps) {
       <div
         className={`customScrollbar max-h-[75vh] min-w-[250px] ${classes.fixParagraph}`}
       >
-        <Markdown className='text-base xs:text-base sm:text-lg max-h-[70vh]'>
-          {content}
-        </Markdown>
+        <div className='text-base xs:text-base sm:text-lg max-h-[70vh]'>
+          <Markdown>{content}</Markdown>
+        </div>
       </div>
     </article>
   );

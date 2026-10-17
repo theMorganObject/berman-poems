@@ -59,20 +59,13 @@ function Modal({
     };
   }, [setShowModal]);
 
-  useEffect(() => {
-    // prevents selecting future months.
-    if (
-      selectedYear === currentYear &&
-      Number(selectedMonth) > Number(currentMonth)
-    ) {
-      setSelectedMonth(currentMonth);
-      setMonth(currentMonth);
-    }
-  }, [selectedYear, selectedMonth, currentMonth, currentYear, setMonth]);
-
   const handleYearClick = (year: string) => {
     setYear(year);
     setSelectedYear(year);
+    if (year === currentYear && Number(selectedMonth) > Number(currentMonth)) {
+      setSelectedMonth(currentMonth);
+      setMonth(currentMonth);
+    }
   };
 
   const handleMonthClick = (month: string) => {

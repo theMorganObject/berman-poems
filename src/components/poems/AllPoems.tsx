@@ -22,7 +22,6 @@ interface AllPoemsProps {
 function AllPoems({ poems }: AllPoemsProps) {
   const [selectedYear, setSelectedYear] = useState<string>('2020');
   const [selectedMonth, setSelectedMonth] = useState<string>('08');
-  const [filteredPoems, setFilteredPoems] = useState<Poem[]>([]);
   const [showModal, setShowModal] = useState<boolean>(true);
 
   useEffect(() => {
@@ -42,21 +41,15 @@ function AllPoems({ poems }: AllPoemsProps) {
     };
   }, []);
 
-  useEffect(() => {
-    // Filter poems based on selectedYear and selectedMonth
-    const filteredResults = poems
-      .filter((poem) => {
-        const poemDate = new Date(poem.date);
-        const poemYear = poemDate.getFullYear().toString();
-        const poemMonth = (poemDate.getMonth() + 1).toString().padStart(2, '0');
-        return poemYear === selectedYear && poemMonth === selectedMonth;
-      })
-      // Sort the filtered poems by date
-      .sort((poemA, poemB) => poemA.date.localeCompare(poemB.date));
-
-    // Update the state with filtered results
-    setFilteredPoems(filteredResults);
-  }, [poems, selectedYear, selectedMonth]); // Dependencies: re-run when poems, selectedYear, or selectedMonth change
+  const filteredPoems = poems
+    .filter((poem) => {
+      const poemDate = new Date(poem.date);
+      const poemYear = poemDate.getFullYear().toString();
+      const poemMonth = (poemDate.getMonth() + 1).toString().padStart(2, '0');
+      return poemYear === selectedYear && poemMonth === selectedMonth;
+    })
+    // Sort the filtered poems by date
+    .sort((poemA, poemB) => poemA.date.localeCompare(poemB.date));
 
   const monthName = monthNumberToFullMonthName(selectedMonth);
 
