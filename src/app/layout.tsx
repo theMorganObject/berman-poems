@@ -15,7 +15,7 @@ const tangerine = Tangerine({
   weight: '700',
   subsets: ['latin'],
   display: 'swap',
-  variable: '--font-tangerine',
+  variable: '--font-tangerine-face',
 });
 
 export const metadata: Metadata = {
@@ -31,7 +31,7 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`relative min-h-screen ${sourceSans3.variable} ${tangerine.variable}`}
+        className={`relative min-h-screen font-sans ${sourceSans3.variable} ${tangerine.variable}`}
       >
         <BackgroundImage
           image={

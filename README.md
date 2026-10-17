@@ -31,8 +31,9 @@ npm run typecheck
 npm run build
 ```
 
-Tailwind stays on the latest 3.x release; upgrading to v4 requires a separate
-CSS and styling migration.
+Tailwind CSS v4 uses `@tailwindcss/postcss`. Theme tokens and custom utilities
+live in `src/app/globals.css`; source files are detected automatically.
+Supported browsers are Safari 16.4+, Chrome 111+, and Firefox 128+.
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 

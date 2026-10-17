@@ -12,7 +12,7 @@ const SearchByNumber: React.FC = () => {
   const router = useRouter();
 
   const sharedButtonClasses =
-    'px-12 py-2 text-2xl tracking-wide font-bold rounded-md border-2 border-gray-9 focus:outline-none focus:ring-4 sm:py-3 sm:text-3xl';
+    'px-12 py-2 text-2xl tracking-wide font-bold rounded-md border-2 border-gray-9 focus:outline-hidden focus:ring-4 sm:py-3 sm:text-3xl';
 
   const appendDigit = (digit: string) => {
     setPoemNumber((current) => `${current}${digit}`);
@@ -53,7 +53,7 @@ const SearchByNumber: React.FC = () => {
   return (
     <div className='flex flex-col min-h-screen justify-center gap-12 p-4 sm:w-96'>
       {/* Current Search Display */}
-      <div className='bg-white text-black font-bold text-2xl shadow-md rounded-lg w-full p-4 text-center sm:text-3xl sm:py-6'>
+      <div className='bg-gray-0 text-gray-9 font-bold text-2xl shadow-md rounded-lg w-full p-4 text-center sm:text-3xl sm:py-6'>
         {poemNumber || 'Enter Poem Number'}
       </div>
 
@@ -67,7 +67,7 @@ const SearchByNumber: React.FC = () => {
               else if (button === 'Clear') clearInput();
               else appendDigit(button);
             }}
-            className='px-4 py-2 font-bold text-xl bg-gray-0 border-2 border-gray-8 rounded-md shadow-md focus:outline-none focus:ring-4 hover:ring-4 sm:text-2xl'
+            className='px-4 py-2 font-bold text-xl bg-gray-0 border-2 border-gray-8 rounded-md shadow-md focus:outline-hidden focus:ring-4 hover:ring-4 sm:text-2xl'
           >
             {button}
           </button>

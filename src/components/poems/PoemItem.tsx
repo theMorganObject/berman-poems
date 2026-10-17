@@ -13,7 +13,7 @@ function PoemItem({ poem }: PoemItemProps) {
   return (
     <li className='mb-6 mx-4 mt-4'>
       <Link href={linkPath}>
-        <div className='flex flex-col items-center justify-between bg-gray-0 bg-opacity-80 border border-gray-8 py-4 px-8 rounded shadow-md transform transition-transform hover:scale-105'>
+        <div className='flex flex-col items-center justify-between bg-gray-0/80 border border-gray-8 py-4 px-8 rounded-sm shadow-md transform transition-transform hover:scale-105'>
           {/* title and exceprt */}
           <h3 className='font-tangerine font-bold text-4xl tracking-wide mb-2'>
             {title}
