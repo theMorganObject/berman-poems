@@ -1,6 +1,7 @@
 import { connectToDatabase } from '@/lib/mongodb';
 import { ObjectId } from 'mongodb';
 import { NextRequest } from 'next/server';
+import { normalizePoem } from '@/lib/poem-model';
 
 export async function GET(req: NextRequest, props: { params: Promise<{ id: string }> }) {
   const params = await props.params;
@@ -19,7 +20,7 @@ export async function GET(req: NextRequest, props: { params: Promise<{ id: strin
       });
     }
 
-    return new Response(JSON.stringify(poem), {
+    return new Response(JSON.stringify(normalizePoem(poem)), {
       status: 200,
       headers: { 'Content-Type': 'application/json' },
     });

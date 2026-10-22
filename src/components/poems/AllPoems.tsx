@@ -5,15 +5,7 @@ import FilteredPoemsList from './FilteredPoemsList';
 import Modal from '../UI/Modal/Modal';
 import { monthNumberToFullMonthName } from '@/lib/date-utils';
 
-export interface Poem {
-  _id: string; // MongoDB ID
-  title: string;
-  date: string;
-  excerpt: string;
-  isFeatured: boolean | string;
-  poemNumber: number;
-  content: string;
-}
+import type { Poem } from '@/types/poem';
 
 interface AllPoemsProps {
   poems: Poem[];
