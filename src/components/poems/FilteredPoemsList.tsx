@@ -1,5 +1,5 @@
 import PoemItem from './PoemItem';
-import { Poem } from './AllPoems';
+import type { Poem } from '@/types/poem';
 
 interface FilteredPoemsListProps {
   poems: Poem[];
