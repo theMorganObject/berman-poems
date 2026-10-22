@@ -87,10 +87,10 @@ function Modal({
   };
 
   return (
-    <div className='fixed inset-0 z-20 bg-gray-9 bg-opacity-90 overflow-y-auto h-full w-full flex items-center justify-center'>
+    <div className='fixed inset-0 z-20 bg-gray-9/90 overflow-y-auto h-full w-full flex items-center justify-center'>
       <div
         ref={modalRef}
-        className='w-11/12 h-11/12 bg-gray-0 shadow-lg rounded-md p-4 xs:w-80 sm:w-[31rem] sm:p-6'
+        className='w-11/12 h-auto bg-gray-0 shadow-lg rounded-md p-4 xs:w-80 sm:w-[31rem] sm:p-6'
       >
         <div className='text-center'>
           {/* YEAR SECTION */}
@@ -103,7 +103,7 @@ function Modal({
                 <button
                   key={year}
                   onClick={() => handleYearClick(year)}
-                  className={`px-2 py-1 font-bold text-xl rounded-md shadow-sm focus:outline-none focus:ring-4 hover:ring-4 sm:px-3 sm:py-2  ${
+                  className={`px-2 py-1 font-bold text-xl rounded-md shadow-xs focus:outline-hidden focus:ring-4 hover:ring-4 sm:px-3 sm:py-2  ${
                     selectedYear === year
                       ? 'border-2 border-gray-8 ring-4 ring-gray-8'
                       : 'bg-gray-0 text-gray-8 border-2 border-gray-8'
@@ -130,9 +130,9 @@ function Modal({
                     key={month}
                     onClick={() => !isInactive && handleMonthClick(month)}
                     disabled={isInactive}
-                    className={`px-2 py-1 font-bold text-xl rounded-md shadow-sm focus:outline-none sm:px-3 sm:py-2 ${
+                    className={`px-2 py-1 font-bold text-xl rounded-md shadow-xs focus:outline-hidden sm:px-3 sm:py-2 ${
                       isInactive
-                        ? 'bg-gray-2 border-2 text-gray-6 cursor-not-allowed'
+                        ? 'bg-gray-2 border-2 border-gray-200 text-gray-6 cursor-not-allowed'
                         : selectedMonth === month
                         ? 'border-2 border-gray-8 ring-4 ring-gray-8'
                         : 'bg-gray-0 text-gray-8 border-2 border-gray-8 hover:ring-4'
@@ -149,13 +149,13 @@ function Modal({
           <div className='flex flex-col sm:flex-row-reverse justify-center mt-4 gap-6 sm:justify-between'>
             <button
               onClick={() => setShowModal(false)}
-              className='px-4 py-2 bg-gray-0 text-gray-8 text-2xl tracking-wide font-bold rounded-md shadow-sm border-2 border-gray-9 focus:outline-none focus:ring-4 hover:ring-4 sm:px-6 sm:py-3'
+              className='px-4 py-2 bg-gray-0 text-gray-8 text-2xl tracking-wide font-bold rounded-md shadow-xs border-2 border-gray-9 focus:outline-hidden focus:ring-4 hover:ring-4 sm:px-6 sm:py-3'
             >
               Search Month
             </button>
             <Link
               href='/poems/search'
-              className='px-4 py-2 bg-gray-0 text-gray-8 text-2xl tracking-wide font-bold rounded-md shadow-sm border-2 border-gray-9 focus:outline-none focus:ring-4 hover:ring-4 sm:px-6 sm:py-3'
+              className='px-4 py-2 bg-gray-0 text-gray-8 text-2xl tracking-wide font-bold rounded-md shadow-xs border-2 border-gray-9 focus:outline-hidden focus:ring-4 hover:ring-4 sm:px-6 sm:py-3'
             >
               Search Poem #
             </Link>
